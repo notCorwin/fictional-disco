@@ -2,43 +2,49 @@
   "questions": [
     {
       "type": "filling",
-      "stem": "设 $P(A) = 0.5,\\ P(B) = 0.7,\\ P(AB) = 0.3$，则 $P(A \\cup B) =$ ___",
-      "stem_image": null,
+      "stem": "设 $P(A) = 0.5,\\ P(B) = 0.7,\\ P(AB) = 0.3$，则 $P(A \\cup B) = [[slot]]",
+      "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "区间 $(-2, 7)$ 上的均匀分布的密度函数为 ___",
-      "stem_image": null,
+      "stem": "区间 $(-2, 7)$ 上的均匀分布的密度函数为 [[slot]]",
+      "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "参数为 5 的泊松分布的分布律为 ___",
-      "stem_image": null,
+      "stem": "参数为 5 的泊松分布的分布律为 [[slot]]",
+      "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "如果随机事件 $A$ 与 $B$ 满足 $P(AB) = 0$，则称事件 $A$ 与 $B$ ___",
-      "stem_image": null,
+      "stem": "如果随机事件 $A$ 与 $B$ 满足 $P(AB) = 0$，则称事件 $A$ 与 $B$ [[slot]]",
+      "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "设 $X$ 与 $Y$ 相互独立且分别服从正态分布 $N(1,4)$ 与 $N(2,5)$，那么 $X - 2Y \\sim$ ___",
-      "stem_image": null,
+      "stem": "设 $X$ 与 $Y$ 相互独立且分别服从正态分布 $N(1,4)$ 与 $N(2,5)$，那么 $X - 2Y \\sim [[slot]]",
+      "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "choices",
       "stem": "下列叙述哪一个正确：（ ）",
-      "stem_image": null,
+      "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -66,7 +72,8 @@
     {
       "type": "choices",
       "stem": "设随机变量 $X \\sim N(\\mu, \\sigma^2)$，$P(X > 2) = 0.5$，则 $\\mu =$ （ ）",
-      "stem_image": null,
+      "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -93,8 +100,9 @@
     },
     {
       "type": "choices",
-      "stem": "若随机变量 $X$ 与 $Y$ 相互独立，$DX$ 与 $DY$ 存在，$a$ 和 $b$ 均为常量，则 $D(aX + bY)$ 等于（ ）",
-      "stem_image": null,
+      "stem": "若随机变量 $X$ 与 $Y$ 相互独立，$DX$ 与 $DY$ 存在，$a$和 $b$ 均为常量，则 $D(aX + bY)$ 等于（ ）",
+      "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -122,7 +130,8 @@
     {
       "type": "choices",
       "stem": "设 $X \\sim E(3)$（参数为 3 的指数分布），则下列正确的是（ ）",
-      "stem_image": null,
+      "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -150,7 +159,8 @@
     {
       "type": "choices",
       "stem": "已知总体 $X \\sim N(\\mu, \\sigma^2)$，其中 $\\mu$ 未知而 $\\sigma$ 已知，$X_1, \\cdots, X_n$ 为取自总体 $X$ 的样本。下列哪一个不是统计量？（ ）",
-      "stem_image": null,
+      "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -178,42 +188,48 @@
     {
       "type": "subjective",
       "stem": "一大楼装有 6 个同类型的供水设备，已知在任意时刻 $t$ 每个设备被使用的概率为 0.2。求在同一时刻至少有 3 个设备被使用的概率。",
-      "stem_image": null,
+      "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "subjective",
       "stem": "设 $(X, Y)$ 的概率密度为：\n$$f(x,y) = \\begin{cases} \\dfrac{3}{2}xy^2, & 0 \\leq x < 2,\\ 0 \\leq y < 1 \\\\ 0, & \\text{其它} \\end{cases}$$\n求关于 $X$ 与 $Y$ 的边缘分布密度，并判断 $X$ 与 $Y$ 是否相互独立。",
-      "stem_image": null,
+      "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "subjective",
       "stem": "设随机变量 $(X, Y)$ 的分布密度为：\n$$f(x,y) = \\begin{cases} 3x, & 0 < x < 1,\\ 0 < y < x \\\\ 0, & \\text{其它} \\end{cases}$$\n试求 $Z = X - Y$ 的分布函数和分布密度。",
-      "stem_image": null,
+      "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "subjective",
       "stem": "设 $DX = 4,\\ DY = 9,\\ \\rho_{XY} = 0.5$，求 $D(2X + 3Y)$。",
-      "stem_image": null,
+      "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "subjective",
       "stem": "设 $X_1, X_2, \\cdots, X_n$ 为正态总体 $N(0, \\sigma^2)$ 的一个样本，求 $\\sigma^2$ 的矩估计量。",
-      "stem_image": null,
+      "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "subjective",
       "stem": "掷均匀硬币 4000 次，试用中心极限定理估计正面出现的频率与概率之差的绝对值不超过 0.01 的概率。",
-      "stem_image": null,
+      "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },

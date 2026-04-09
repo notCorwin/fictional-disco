@@ -121,8 +121,9 @@ fictional-disco/
    OPENROUTER_MODEL_NAME=your_model_name_here
    ```
 4. Prompt 参见 `prompts/prompt_step2.md`。
-5. 此步骤只负责结构化题目内容，不生成答案与解析。
-6. 不对 Doc2X 输出做预清洗——LLM 自行容忍文本噪音。
+5. **填空位处理：** 要求 LLM 将原题中的下划线（如 `___`）统一转换为 `[[slot]]` 占位符，并统计数量存入 `fill_slots_count`。
+6. 此步骤只负责结构化题目内容，不生成答案与解析。
+7. 不对 Doc2X 输出做预清洗——LLM 自行容忍文本噪音。
 
 ---
 
@@ -136,7 +137,7 @@ fictional-disco/
 
 **通用校验规则（始终执行）：**
 
-1. **必填字段完整性：** 递归遍历题目树，检查每个节点是否包含所有必填字段（`type`、`stem`、`stem_image`、`options`、`sub_questions`）。
+1. **必填字段完整性：** 递归遍历题目树，检查每个节点是否包含所有必填字段（`type`、`stem`、`stem_images`、`fill_slots_count`、`options`、`sub_questions`）。
 2. **题型合法性：** 检查 `type` 值是否属于枚举 `["choices", "filling", "judging", "subjective"]`。
 3. **题型与字段一致性：**
    - `choices` 类型的 `options` 不得为 `null`，且至少包含 2 个选项。
@@ -153,6 +154,7 @@ fictional-disco/
 7. **答案字段完整性：** 确认每个叶子节点（无 `sub_questions` 的题目）均已填充 `answer` 与 `solution`。
 8. **选择题答案合法性：** `choices` 类型的 `answer` 值必须由合法的选项标号组成（如 `"A"`、`"AC"`）。
 9. **判断题答案合法性：** `judging` 类型的 `answer` 值必须为 `"正确"` 或 `"错误"`。
+10. **填空题答案合法性：** `filling` 类型的 `answer` 必须是字符串数组，其长度必须等于该题目的 `fill_slots_count`。
 
 **输出报告：** 以结构化格式列出所有警告与错误，包含字段路径、问题类型及原始值。
 

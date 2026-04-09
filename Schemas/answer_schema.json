@@ -5,8 +5,15 @@
     "type": "object",
     "properties": {
       "answer": {
-        "anyOf": [{ "type": "string" }, { "type": "null" }],
-        "description": "该题的最终答案。选择题填选项标号如 \"C\"；填空题填答案值；判断题填 \"正确\" 或 \"错误\"；有子题的父题为 null"
+        "anyOf": [
+          { "type": "string" },
+          {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          { "type": "null" }
+        ],
+        "description": "该题的最终答案。选择题填选项标号如 \"C\"；填空题输出字符串数组（对应每个 [[slot]]）；判断题填 \"正确\" 或 \"错误\"；有子题的父题为 null"
       },
       "solution": {
         "anyOf": [{ "type": "string" }, { "type": "null" }],
@@ -31,7 +38,14 @@
         "description": "单个子题的答案节点（递归结构）",
         "properties": {
           "answer": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "anyOf": [
+              { "type": "string" },
+              {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              { "type": "null" }
+            ],
             "description": "该子题的最终答案，规则同顶层"
           },
           "solution": {

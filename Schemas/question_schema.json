@@ -26,11 +26,17 @@
           },
           "stem": {
             "type": "string",
-            "description": "题干文本，可包含 LaTeX 公式（$...$ 或 $$...$$）"
+            "description": "题干文本，可包含 LaTeX 公式（$...$ 或 $$...$$）。若是填空题，必须在相应位置使用 [[slot]] 占位符。"
           },
-          "stem_image": {
-            "anyOf": [{ "type": "string" }, { "type": "null" }],
-            "description": "题干配图的相对路径（如 images/q1_stem.png），无图则为 null"
+          "stem_images": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "题干配图的相对路径列表（如 [\"images/q1_1.png\"]），无图则为空数组 []"
+          },
+          "fill_slots_count": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "填空题中的空格数量。非填空题填 0。填空位置在 stem 中使用 [[slot]] 标记。"
           },
           "options": {
             "anyOf": [
@@ -53,7 +59,14 @@
             "description": "子题列表（递归结构），无子题时为 null"
           }
         },
-        "required": ["type", "stem", "stem_image", "options", "sub_questions"],
+        "required": [
+          "type",
+          "stem",
+          "stem_images",
+          "fill_slots_count",
+          "options",
+          "sub_questions"
+        ],
         "additionalProperties": false
       },
       "option": {
