@@ -1,20 +1,19 @@
-"""试卷转 JSON 转换工具 — 流水线入口"""
+"""试卷转 JSON 转换工具入口。"""
 
 import argparse
 import sys
 from pathlib import Path
 
-from . import config
+from .convert import convert_to_pdf
 from .pdf2md import pdf_to_markdown
-from .step0_convert import convert_to_pdf
-from .step2_md2json import markdown_to_json
-from .step3_validate import validate_json
-from .step4_answers import generate_answers
-from .step5_final import final_validate
+from .md2json import markdown_to_json
+from .validate import validate_json
+from .answers import generate_answers
+from .final import final_validate
 
 
 def run_pipeline(input_path: Path, output_dir: Path) -> Path:
-    """执行完整的 Step 0 → Step 5 流水线。"""
+    """执行完整的阶段 0 到阶段 5 流水线。"""
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Step 0: 转换为 PDF
