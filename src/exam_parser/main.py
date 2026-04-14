@@ -5,8 +5,8 @@ import sys
 from pathlib import Path
 
 from . import config
+from .pdf2md import pdf_to_markdown
 from .step0_convert import convert_to_pdf
-from .step1_pdf2md import pdf_to_markdown
 from .step2_md2json import markdown_to_json
 from .step3_validate import validate_json
 from .step4_answers import generate_answers

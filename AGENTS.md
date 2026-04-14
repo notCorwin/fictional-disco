@@ -22,12 +22,7 @@ fictional-disco/
 │   ├── __init__.py
 │   ├── main.py               # CLI / 流水线入口
 │   ├── config.py             # 读 .env、常量、资源路径
-│   ├── step0_convert.py      # Step 0：文件 → PDF
-│   ├── step1_pdf2md.py       # Step 1：PDF → Markdown（Doc2X）
-│   ├── step2_md2json.py      # Step 2：Markdown → JSON（LLM）
-│   ├── step3_validate.py     # Step 3/5：校验（通用 + 答案）
-│   ├── step4_answers.py      # Step 4：生成答案（LLM）
-│   └── step5_final.py        # Step 5：最终校验（调用 step3）
+│   └── pdf2md.py             # PDF → Markdown（Doc2X）
 │
 ├── schemas/                  # JSON Schema
 │   ├── question_schema.json
@@ -46,10 +41,12 @@ fictional-disco/
 │   ├── conftest.py
 │   └── fixtures/
 │       ├── pdf2md/
-│       │   ├── input/simple/
-│       │   ├── input/hard/
+│       │   ├── input/
+│       │   │   ├── PDF/
+│       │   │   └── Pic/
 │       │   └── output/
-│       └── md2json/
+│       │   └── run_pdf2md_fixture.py
+│       └── md2json/          # 预留
 │           ├── input/
 │           ├── expected/
 │           └── output/
@@ -88,7 +85,7 @@ fictional-disco/
 
 ### Step 1：PDF 转换为 Markdown + 图片
 
-**源码：** `src/exam_parser/step1_pdf2md.py`
+**源码：** `src/exam_parser/pdf2md.py`
 **输入：** PDF 文件
 **输出：** 压缩包，内含 Markdown 文件和 `images/` 文件夹
 
