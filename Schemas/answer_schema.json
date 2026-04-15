@@ -3,6 +3,7 @@
   "strict": true,
   "schema": {
     "type": "object",
+    "description": "答案生成阶段的镜像树 schema。当前仍使用递归结构；如目标 provider 不支持递归 $ref，需要仿照 question_schema.json 展开为固定层数版本。",
     "properties": {
       "answer": {
         "anyOf": [

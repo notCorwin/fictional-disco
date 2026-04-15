@@ -3,6 +3,7 @@
   "strict": true,
   "schema": {
     "type": "object",
+    "description": "Markdown 转题目 JSON 的 provider 兼容 schema。为了兼容 Claude 当前路由，不使用递归 $ref 与 minimum 等更窄 provider 子集不支持的约束；更严格的业务规则下沉到程序校验。",
     "properties": {
       "questions": {
         "type": "array",
@@ -37,7 +38,7 @@
       },
       "question_level_1": {
         "type": "object",
-        "description": "一道题目。最多允许 5 层题目树；当前为第 1 层。",
+        "description": "一道题目。最多允许 5 层题目树；当前为第 1 层。更严格的题型一致性、非负数、题号覆盖率等规则由 validate.py 负责。",
         "properties": {
           "type": {
             "type": "string",
@@ -55,7 +56,7 @@
           },
           "fill_slots_count": {
             "type": "integer",
-            "description": "填空题中的空格数量。非填空题填 0。填空位置在 stem 中使用 [[slot]] 标记。"
+            "description": "填空题中的空格数量。非填空题通常填 0。是否非负、是否与 [[slot]] 数量一致由程序校验负责。"
           },
           "options": {
             "anyOf": [
@@ -90,7 +91,7 @@
       },
       "question_level_2": {
         "type": "object",
-        "description": "一道题目。最多允许 5 层题目树；当前为第 2 层。",
+        "description": "一道题目。最多允许 5 层题目树；当前为第 2 层。更严格的题型一致性、非负数、题号覆盖率等规则由 validate.py 负责。",
         "properties": {
           "type": {
             "type": "string",
@@ -108,7 +109,7 @@
           },
           "fill_slots_count": {
             "type": "integer",
-            "description": "填空题中的空格数量。非填空题填 0。填空位置在 stem 中使用 [[slot]] 标记。"
+            "description": "填空题中的空格数量。非填空题通常填 0。是否非负、是否与 [[slot]] 数量一致由程序校验负责。"
           },
           "options": {
             "anyOf": [
@@ -143,7 +144,7 @@
       },
       "question_level_3": {
         "type": "object",
-        "description": "一道题目。最多允许 5 层题目树；当前为第 3 层。",
+        "description": "一道题目。最多允许 5 层题目树；当前为第 3 层。更严格的题型一致性、非负数、题号覆盖率等规则由 validate.py 负责。",
         "properties": {
           "type": {
             "type": "string",
@@ -161,7 +162,7 @@
           },
           "fill_slots_count": {
             "type": "integer",
-            "description": "填空题中的空格数量。非填空题填 0。填空位置在 stem 中使用 [[slot]] 标记。"
+            "description": "填空题中的空格数量。非填空题通常填 0。是否非负、是否与 [[slot]] 数量一致由程序校验负责。"
           },
           "options": {
             "anyOf": [
@@ -196,7 +197,7 @@
       },
       "question_level_4": {
         "type": "object",
-        "description": "一道题目。最多允许 5 层题目树；当前为第 4 层。",
+        "description": "一道题目。最多允许 5 层题目树；当前为第 4 层。更严格的题型一致性、非负数、题号覆盖率等规则由 validate.py 负责。",
         "properties": {
           "type": {
             "type": "string",
@@ -214,7 +215,7 @@
           },
           "fill_slots_count": {
             "type": "integer",
-            "description": "填空题中的空格数量。非填空题填 0。填空位置在 stem 中使用 [[slot]] 标记。"
+            "description": "填空题中的空格数量。非填空题通常填 0。是否非负、是否与 [[slot]] 数量一致由程序校验负责。"
           },
           "options": {
             "anyOf": [
@@ -249,7 +250,7 @@
       },
       "question_level_5": {
         "type": "object",
-        "description": "一道题目。最多允许 5 层题目树；当前为第 5 层。该层不允许继续嵌套子题。",
+        "description": "一道题目。最多允许 5 层题目树；当前为第 5 层。该层不允许继续嵌套子题。更严格的题型一致性、非负数、题号覆盖率等规则由 validate.py 负责。",
         "properties": {
           "type": {
             "type": "string",
@@ -267,7 +268,7 @@
           },
           "fill_slots_count": {
             "type": "integer",
-            "description": "填空题中的空格数量。非填空题填 0。填空位置在 stem 中使用 [[slot]] 标记。"
+            "description": "填空题中的空格数量。非填空题通常填 0。是否非负、是否与 [[slot]] 数量一致由程序校验负责。"
           },
           "options": {
             "anyOf": [

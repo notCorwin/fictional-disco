@@ -34,8 +34,8 @@ fictional-disco/
 │   └── answer_schema.json
 │
 ├── prompts/                  # LLM Prompt 模板
-│   ├── prompt_md2json.md
-│   └── prompt_answers.md
+│   ├── prompt_step2.md
+│   └── prompt_step4.md
 │
 ├── docs/                     # 参考文档
 │   ├── doc2x_api.md
@@ -65,10 +65,10 @@ fictional-disco/
 
 | 文件 | 用途 |
 |---|---|
-| `schemas/question_schema.json` | Markdown → JSON 使用的 Structured Outputs Schema（题目结构） |
-| `schemas/answer_schema.json` | 答案生成使用的 Structured Outputs Schema（答案与解析） |
-| `prompts/prompt_md2json.md` | Markdown → JSON 的 System Prompt 与 User Prompt 模板 |
-| `prompts/prompt_answers.md` | 答案生成的 System Prompt 与 User Prompt 模板 |
+| `schemas/question_schema.json` | Markdown → JSON 使用的 Structured Outputs Schema（题目结构，当前为 5 层非递归 provider 兼容版） |
+| `schemas/answer_schema.json` | 答案生成使用的 Structured Outputs Schema（答案与解析，当前仍为递归版） |
+| `prompts/prompt_step2.md` | Markdown → JSON 的 System Prompt 与 User Prompt 模板 |
+| `prompts/prompt_step4.md` | 答案生成的 System Prompt 与 User Prompt 模板 |
 
 ---
 
@@ -122,11 +122,13 @@ fictional-disco/
    OPENROUTER_API_KEY=your_api_key_here
    OPENROUTER_MODEL_NAME=your_model_name_here
    ```
-4. Prompt 参见 `prompts/prompt_md2json.md`。
+4. Prompt 参见 `prompts/prompt_step2.md`。
 5. **填空位处理：** 要求 LLM 将原题中的下划线（如 `___`）统一转换为 `[[slot]]` 占位符，并统计数量存入 `fill_slots_count`。
 6. 此步骤只负责结构化题目内容，不生成答案与解析。
 7. 不对 Doc2X 输出做预清洗——LLM 自行容忍文本噪音。
 8. 必须尽量保留源 Markdown 中的全部题目，不得因为题干较长、包含公式、含有加粗文本或跨行而漏掉某道显式编号题。
+9. 当前经验表明：provider 对 JSON Schema 仅支持子集。`question_schema.json` 已调整为 5 层非递归兼容版；更严格的业务规则由程序校验承担。
+10. 当前 Claude 输出整体质量已满足题目覆盖率要求，剩余主要问题集中在 Markdown 标记与文本标准化，如 `**...**`、`[[slot]]` 前后连接符、空格风格。
 
 ---
 
@@ -177,10 +179,21 @@ fictional-disco/
 1. 调用 OpenRouter API，使用 Structured Outputs 功能，逐题推算正确答案并生成完整解析。
 2. Schema 使用 `schemas/answer_schema.json`，设置 `strict: true`。
 3. API 配置同阶段 2（读取根目录 `.env` 文件）。
-4. Prompt 参见 `prompts/prompt_answers.md`。
+4. Prompt 参见 `prompts/prompt_step4.md`。
 5. **以顶层题目为单位调用：** 每道顶层题目单独发起一次 API 请求。父题的 `stem` 作为所有子题的上下文，整棵子题树在同一次请求中处理。
 6. **答案 Schema 为镜像树结构：** `schemas/answer_schema.json` 的 `sub_answers` 数组与 `schemas/question_schema.json` 的 `sub_questions` 按位置一一对应。
 7. **合并：** 代码按位置将 `answer_schema` 的输出合并回主 JSON 的对应题目节点，写入 `answer` 和 `solution` 字段。
+8. 若所选 provider 不支持递归答案 schema，应仿照 `question_schema.json` 将答案 schema 展开为固定层数版本。
+
+---
+
+## 当前经验结论
+
+1. OpenRouter 上的不同 provider 对 Structured Outputs 的 JSON Schema 支持能力不一致，不能默认支持完整 JSON Schema。
+2. Claude 当前路由已验证可在“5 层非递归 question schema”下成功返回完整题目结构。
+3. `minimum`、递归 `$ref` 一类约束应谨慎使用；更适合交给 `validate.py` 在程序侧完成。
+4. Fixture 不应被视为唯一真值；必须对照源 Markdown 做题号连续性与覆盖率校验。
+5. 目前 `tests/fixtures/md2json/expected/概率论7套真题.json` 已更新为 Claude 当前输出基线。
 
 ---
 
