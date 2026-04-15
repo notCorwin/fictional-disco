@@ -8,67 +8,13 @@
         "type": "array",
         "description": "试卷中所有顶层题目的列表",
         "items": {
-          "$ref": "#/$defs/question"
+          "$ref": "#/$defs/question_level_1"
         }
       }
     },
     "required": ["questions"],
     "additionalProperties": false,
     "$defs": {
-      "question": {
-        "type": "object",
-        "description": "一道题目。type 决定哪些字段有意义：choices 类型必须有 options；filling/judging/subjective 的 options 为 null；有子题时 sub_questions 非 null，无子题时为 null。",
-        "properties": {
-          "type": {
-            "type": "string",
-            "enum": ["choices", "filling", "judging", "subjective"],
-            "description": "题型：choices=选择题, filling=填空题, judging=判断题, subjective=主观题/解答题"
-          },
-          "stem": {
-            "type": "string",
-            "description": "题干文本，可包含 LaTeX 公式（$...$ 或 $$...$$）。若是填空题，必须在相应位置使用 [[slot]] 占位符。"
-          },
-          "stem_images": {
-            "type": "array",
-            "items": { "type": "string" },
-            "description": "题干配图的相对路径列表（如 [\"images/q1_1.png\"]），无图则为空数组 []"
-          },
-          "fill_slots_count": {
-            "type": "integer",
-            "minimum": 0,
-            "description": "填空题中的空格数量。非填空题填 0。填空位置在 stem 中使用 [[slot]] 标记。"
-          },
-          "options": {
-            "anyOf": [
-              {
-                "type": "array",
-                "items": { "$ref": "#/$defs/option" }
-              },
-              { "type": "null" }
-            ],
-            "description": "选择题的选项列表，非选择题为 null"
-          },
-          "sub_questions": {
-            "anyOf": [
-              {
-                "type": "array",
-                "items": { "$ref": "#/$defs/question" }
-              },
-              { "type": "null" }
-            ],
-            "description": "子题列表（递归结构），无子题时为 null"
-          }
-        },
-        "required": [
-          "type",
-          "stem",
-          "stem_images",
-          "fill_slots_count",
-          "options",
-          "sub_questions"
-        ],
-        "additionalProperties": false
-      },
       "option": {
         "type": "object",
         "description": "选择题的单个选项",
@@ -87,6 +33,265 @@
           }
         },
         "required": ["label", "text", "image"],
+        "additionalProperties": false
+      },
+      "question_level_1": {
+        "type": "object",
+        "description": "一道题目。最多允许 5 层题目树；当前为第 1 层。",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["choices", "filling", "judging", "subjective"],
+            "description": "题型：choices=选择题, filling=填空题, judging=判断题, subjective=主观题/解答题"
+          },
+          "stem": {
+            "type": "string",
+            "description": "题干文本，可包含 LaTeX 公式（$...$ 或 $$...$$）。若是填空题，必须在相应位置使用 [[slot]] 占位符。"
+          },
+          "stem_images": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "题干配图的相对路径列表（如 [\"images/q1_1.png\"]），无图则为空数组 []"
+          },
+          "fill_slots_count": {
+            "type": "integer",
+            "description": "填空题中的空格数量。非填空题填 0。填空位置在 stem 中使用 [[slot]] 标记。"
+          },
+          "options": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": { "$ref": "#/$defs/option" }
+              },
+              { "type": "null" }
+            ],
+            "description": "选择题的选项列表，非选择题为 null"
+          },
+          "sub_questions": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": { "$ref": "#/$defs/question_level_2" }
+              },
+              { "type": "null" }
+            ],
+            "description": "子题列表，无子题时为 null"
+          }
+        },
+        "required": [
+          "type",
+          "stem",
+          "stem_images",
+          "fill_slots_count",
+          "options",
+          "sub_questions"
+        ],
+        "additionalProperties": false
+      },
+      "question_level_2": {
+        "type": "object",
+        "description": "一道题目。最多允许 5 层题目树；当前为第 2 层。",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["choices", "filling", "judging", "subjective"],
+            "description": "题型：choices=选择题, filling=填空题, judging=判断题, subjective=主观题/解答题"
+          },
+          "stem": {
+            "type": "string",
+            "description": "题干文本，可包含 LaTeX 公式（$...$ 或 $$...$$）。若是填空题，必须在相应位置使用 [[slot]] 占位符。"
+          },
+          "stem_images": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "题干配图的相对路径列表（如 [\"images/q1_1.png\"]），无图则为空数组 []"
+          },
+          "fill_slots_count": {
+            "type": "integer",
+            "description": "填空题中的空格数量。非填空题填 0。填空位置在 stem 中使用 [[slot]] 标记。"
+          },
+          "options": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": { "$ref": "#/$defs/option" }
+              },
+              { "type": "null" }
+            ],
+            "description": "选择题的选项列表，非选择题为 null"
+          },
+          "sub_questions": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": { "$ref": "#/$defs/question_level_3" }
+              },
+              { "type": "null" }
+            ],
+            "description": "子题列表，无子题时为 null"
+          }
+        },
+        "required": [
+          "type",
+          "stem",
+          "stem_images",
+          "fill_slots_count",
+          "options",
+          "sub_questions"
+        ],
+        "additionalProperties": false
+      },
+      "question_level_3": {
+        "type": "object",
+        "description": "一道题目。最多允许 5 层题目树；当前为第 3 层。",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["choices", "filling", "judging", "subjective"],
+            "description": "题型：choices=选择题, filling=填空题, judging=判断题, subjective=主观题/解答题"
+          },
+          "stem": {
+            "type": "string",
+            "description": "题干文本，可包含 LaTeX 公式（$...$ 或 $$...$$）。若是填空题，必须在相应位置使用 [[slot]] 占位符。"
+          },
+          "stem_images": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "题干配图的相对路径列表（如 [\"images/q1_1.png\"]），无图则为空数组 []"
+          },
+          "fill_slots_count": {
+            "type": "integer",
+            "description": "填空题中的空格数量。非填空题填 0。填空位置在 stem 中使用 [[slot]] 标记。"
+          },
+          "options": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": { "$ref": "#/$defs/option" }
+              },
+              { "type": "null" }
+            ],
+            "description": "选择题的选项列表，非选择题为 null"
+          },
+          "sub_questions": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": { "$ref": "#/$defs/question_level_4" }
+              },
+              { "type": "null" }
+            ],
+            "description": "子题列表，无子题时为 null"
+          }
+        },
+        "required": [
+          "type",
+          "stem",
+          "stem_images",
+          "fill_slots_count",
+          "options",
+          "sub_questions"
+        ],
+        "additionalProperties": false
+      },
+      "question_level_4": {
+        "type": "object",
+        "description": "一道题目。最多允许 5 层题目树；当前为第 4 层。",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["choices", "filling", "judging", "subjective"],
+            "description": "题型：choices=选择题, filling=填空题, judging=判断题, subjective=主观题/解答题"
+          },
+          "stem": {
+            "type": "string",
+            "description": "题干文本，可包含 LaTeX 公式（$...$ 或 $$...$$）。若是填空题，必须在相应位置使用 [[slot]] 占位符。"
+          },
+          "stem_images": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "题干配图的相对路径列表（如 [\"images/q1_1.png\"]），无图则为空数组 []"
+          },
+          "fill_slots_count": {
+            "type": "integer",
+            "description": "填空题中的空格数量。非填空题填 0。填空位置在 stem 中使用 [[slot]] 标记。"
+          },
+          "options": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": { "$ref": "#/$defs/option" }
+              },
+              { "type": "null" }
+            ],
+            "description": "选择题的选项列表，非选择题为 null"
+          },
+          "sub_questions": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": { "$ref": "#/$defs/question_level_5" }
+              },
+              { "type": "null" }
+            ],
+            "description": "子题列表，无子题时为 null"
+          }
+        },
+        "required": [
+          "type",
+          "stem",
+          "stem_images",
+          "fill_slots_count",
+          "options",
+          "sub_questions"
+        ],
+        "additionalProperties": false
+      },
+      "question_level_5": {
+        "type": "object",
+        "description": "一道题目。最多允许 5 层题目树；当前为第 5 层。该层不允许继续嵌套子题。",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["choices", "filling", "judging", "subjective"],
+            "description": "题型：choices=选择题, filling=填空题, judging=判断题, subjective=主观题/解答题"
+          },
+          "stem": {
+            "type": "string",
+            "description": "题干文本，可包含 LaTeX 公式（$...$ 或 $$...$$）。若是填空题，必须在相应位置使用 [[slot]] 占位符。"
+          },
+          "stem_images": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "题干配图的相对路径列表（如 [\"images/q1_1.png\"]），无图则为空数组 []"
+          },
+          "fill_slots_count": {
+            "type": "integer",
+            "description": "填空题中的空格数量。非填空题填 0。填空位置在 stem 中使用 [[slot]] 标记。"
+          },
+          "options": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": { "$ref": "#/$defs/option" }
+              },
+              { "type": "null" }
+            ],
+            "description": "选择题的选项列表，非选择题为 null"
+          },
+          "sub_questions": {
+            "type": "null",
+            "description": "第 5 层不允许继续嵌套子题，必须为 null"
+          }
+        },
+        "required": [
+          "type",
+          "stem",
+          "stem_images",
+          "fill_slots_count",
+          "options",
+          "sub_questions"
+        ],
         "additionalProperties": false
       }
     }

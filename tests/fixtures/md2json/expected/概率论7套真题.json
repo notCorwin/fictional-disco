@@ -2,7 +2,7 @@
   "questions": [
     {
       "type": "filling",
-      "stem": "设 $P(A) = 0.5,\\ P(B) = 0.7,\\ P(AB) = 0.3$，则 $P(A \\cup B) = [[slot]]",
+      "stem": "设 $P(A) = 0.5,\\ P(B) = 0.7,\\ P(AB) = 0.3$，则 $P(A \\cup B) =$ [[slot]]",
       "stem_images": [],
       "fill_slots_count": 1,
       "options": null,
@@ -34,7 +34,7 @@
     },
     {
       "type": "filling",
-      "stem": "设 $X$ 与 $Y$ 相互独立且分别服从正态分布 $N(1,4)$ 与 $N(2,5)$，那么 $X - 2Y \\sim [[slot]]",
+      "stem": "设 $X$ 与 $Y$ 相互独立且分别服从正态分布 $N(1,4)$ 与 $N(2,5)$，那么 $X - 2Y \\sim$ [[slot]]",
       "stem_images": [],
       "fill_slots_count": 1,
       "options": null,
@@ -42,7 +42,7 @@
     },
     {
       "type": "choices",
-      "stem": "下列叙述哪一个正确：（ ）",
+      "stem": "下列叙述哪一个正确：",
       "stem_images": [],
       "fill_slots_count": 0,
       "options": [
@@ -100,7 +100,7 @@
     },
     {
       "type": "choices",
-      "stem": "若随机变量 $X$ 与 $Y$ 相互独立，$DX$ 与 $DY$ 存在，$a$和 $b$ 均为常量，则 $D(aX + bY)$ 等于（ ）",
+      "stem": "若随机变量 $X$ 与 $Y$ 相互独立，$DX$ 与 $DY$ 存在，$a$ 和 $b$ 均为常量，则 $D(aX + bY)$ 等于（ ）",
       "stem_images": [],
       "fill_slots_count": 0,
       "options": [
@@ -158,7 +158,7 @@
     },
     {
       "type": "choices",
-      "stem": "已知总体 $X \\sim N(\\mu, \\sigma^2)$，其中 $\\mu$ 未知而 $\\sigma$ 已知，$X_1, \\cdots, X_n$ 为取自总体 $X$ 的样本。下列哪一个不是统计量？（ ）",
+      "stem": "已知总体 $X \\sim N(\\mu, \\sigma^2)$，其中 $\\mu$ 未知而 $\\sigma$ 已知，$X_1, \\cdots, X_n$ 为取自总体 $X$ 的样本。下列哪一个**不是**统计量？",
       "stem_images": [],
       "fill_slots_count": 0,
       "options": [
@@ -187,7 +187,7 @@
     },
     {
       "type": "subjective",
-      "stem": "一大楼装有 6 个同类型的供水设备，已知在任意时刻 $t$ 每个设备被使用的概率为 0.2。求在同一时刻至少有 3 个设备被使用的概率。",
+      "stem": "一大楼装有 6 个同类型的供水设备，已知在任意时刻 $t$ 每个设备被使用的概率为 0.2。求在同一时刻**至少有 3 个设备被使用**的概率。",
       "stem_images": [],
       "fill_slots_count": 0,
       "options": null,
@@ -195,7 +195,7 @@
     },
     {
       "type": "subjective",
-      "stem": "设 $(X, Y)$ 的概率密度为：\n$$f(x,y) = \\begin{cases} \\dfrac{3}{2}xy^2, & 0 \\leq x < 2,\\ 0 \\leq y < 1 \\\\ 0, & \\text{其它} \\end{cases}$$\n求关于 $X$ 与 $Y$ 的边缘分布密度，并判断 $X$ 与 $Y$ 是否相互独立。",
+      "stem": "设 $(X, Y)$ 的概率密度为：\n\n$$f(x,y) = \\begin{cases} \\dfrac{3}{2}xy^2, & 0 \\leq x < 2,\\ 0 \\leq y < 1 \\\\ 0, & \\text{其它} \\end{cases}$$\n\n求关于 $X$ 与 $Y$ 的边缘分布密度，并判断 $X$ 与 $Y$ 是否相互独立。",
       "stem_images": [],
       "fill_slots_count": 0,
       "options": null,
@@ -203,7 +203,7 @@
     },
     {
       "type": "subjective",
-      "stem": "设随机变量 $(X, Y)$ 的分布密度为：\n$$f(x,y) = \\begin{cases} 3x, & 0 < x < 1,\\ 0 < y < x \\\\ 0, & \\text{其它} \\end{cases}$$\n试求 $Z = X - Y$ 的分布函数和分布密度。",
+      "stem": "设随机变量 $(X, Y)$ 的分布密度为：\n\n$$f(x,y) = \\begin{cases} 3x, & 0 < x < 1,\\ 0 < y < x \\\\ 0, & \\text{其它} \\end{cases}$$\n\n试求 $Z = X - Y$ 的分布函数和分布密度。",
       "stem_images": [],
       "fill_slots_count": 0,
       "options": null,
@@ -227,7 +227,7 @@
     },
     {
       "type": "subjective",
-      "stem": "掷均匀硬币 4000 次，试用中心极限定理估计正面出现的频率与概率之差的绝对值不超过 0.01 的概率。",
+      "stem": "掷均匀硬币 4000 次，试用**中心极限定理**估计正面出现的频率与概率之差的绝对值不超过 0.01 的概率。",
       "stem_images": [],
       "fill_slots_count": 0,
       "options": null,
@@ -237,6 +237,7 @@
       "type": "choices",
       "stem": "设随机变量 $X$ 服从参数为 2 的泊松分布，则 $P\\{X \\geq 1\\} =$ （ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -265,6 +266,7 @@
       "type": "choices",
       "stem": "设 $X_1$ 和 $X_2$ 是任意两个相互独立的连续型随机变量，概率密度分别为 $f_1(x)$ 和 $f_2(x)$，分布函数分别为 $F_1(x)$ 和 $F_2(x)$，则（ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -293,6 +295,7 @@
       "type": "choices",
       "stem": "设 $DX = DY = 1,\\ \\rho_{XY} = 0.1$，则 $D(Y - 2X + 3) =$ （ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -321,6 +324,7 @@
       "type": "choices",
       "stem": "设随机变量 $X_1, \\cdots, X_n$ 独立同分布，$X_i \\sim N(\\mu, \\sigma^2)$，则 $\\bar{X} = \\dfrac{1}{n}\\sum_{i=1}^n X_i \\sim$ （ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -347,43 +351,49 @@
     },
     {
       "type": "filling",
-      "stem": "设 $\\zeta$ 的分布函数为 $F(x) = A + \\dfrac{1}{\\pi}\\arctan x,\\quad -\\infty < x < +\\infty$，则常数 $A =$ ___",
+      "stem": "设 $\\zeta$ 的分布函数为 $F(x) = A + \\dfrac{1}{\\pi}\\arctan x,\\quad -\\infty < x < +\\infty$，则常数 $A =$ [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "设两个随机变量 $X$ 与 $Y$ 相互独立，且均服从区间 $[0, 3]$ 上的均匀分布，则 $P\\{\\max(X, Y) \\leq 1\\} =$ ___",
+      "stem": "设两个随机变量 $X$ 与 $Y$ 相互独立，且均服从区间 $[0, 3]$ 上的均匀分布，则 $P\\{\\max(X, Y) \\leq 1\\} =$ [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "设 $X$ 为随机变量，$E(X) = 1$，$E(X^2) = 2$，则根据切比雪夫不等式 $P(|X - 1| \\geq 2) \\leq$ ___",
+      "stem": "设 $X$ 为随机变量，$E(X) = 1$，$E(X^2) = 2$，则根据切比雪夫不等式 $P(|X - 1| \\geq 2) \\leq$ [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "设 $X \\sim N(0,1)$，$X_1, X_2, \\cdots, X_n$ 为总体 $X$ 的一个样本，令 $Y = X_1^2 + X_2^2 + \\cdots + X_n^2$，则 $D(Y) =$ ___",
+      "stem": "设 $X \\sim N(0,1)$，$X_1, X_2, \\cdots, X_n$ 为总体 $X$ 的一个样本，令 $Y = X_1^2 + X_2^2 + \\cdots + X_n^2$，则 $D(Y) =$ [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "设 $X_1, X_2, \\cdots, X_n$ 为总体 $X$ 的一个简单随机样本，则样本方差 $S^2 =$ ___",
+      "stem": "设 $X_1, X_2, \\cdots, X_n$ 为总体 $X$ 的一个简单随机样本，则样本方差 $S^2 =$ [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "subjective",
-      "stem": "某商场出售的灯泡来自甲、乙两个厂，甲厂产品占 80%，合格率为 95%；乙厂产品占 20%，合格率为 90%。某顾客买一灯泡，求它是合格品的概率。",
+      "stem": "某商场出售的灯泡来自甲、乙两个厂，甲厂产品占 80%，合格率为 95%；乙厂产品占 20%，合格率为 90%。某顾客买一灯泡，求它是**合格品**的概率。",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
@@ -391,26 +401,30 @@
       "type": "subjective",
       "stem": "设随机变量 $X$ 具有概率密度：\n\n$$f(x) = \\begin{cases} a\\cos x, & |x| < \\dfrac{\\pi}{2} \\\\ 0, & \\text{其它} \\end{cases}$$",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": [
         {
           "type": "subjective",
-          "stem": "求常数 $a$；",
+          "stem": "求常数 $a$。",
           "stem_images": [],
+          "fill_slots_count": 0,
           "options": null,
           "sub_questions": null
         },
         {
           "type": "subjective",
-          "stem": "求 $P\\!\\left\\{0 < X < \\dfrac{\\pi}{4}\\right\\}$；",
+          "stem": "求 $P\\!\\left\\{0 < X < \\dfrac{\\pi}{4}\\right\\}$。",
           "stem_images": [],
+          "fill_slots_count": 0,
           "options": null,
           "sub_questions": null
         },
         {
           "type": "subjective",
-          "stem": "$X$ 的分布函数 $F(x)$。",
+          "stem": "求 $X$ 的分布函数 $F(x)$。",
           "stem_images": [],
+          "fill_slots_count": 0,
           "options": null,
           "sub_questions": null
         }
@@ -420,19 +434,22 @@
       "type": "subjective",
       "stem": "设 $(X, Y)$ 的概率密度为：\n\n$$f(x,y) = \\begin{cases} Axy^2, & 0 \\leq x < 2,\\ 0 \\leq y < 1 \\\\ 0, & \\text{其它} \\end{cases}$$",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": [
         {
           "type": "subjective",
-          "stem": "求 $A$；",
+          "stem": "求 $A$。",
           "stem_images": [],
+          "fill_slots_count": 0,
           "options": null,
           "sub_questions": null
         },
         {
           "type": "subjective",
-          "stem": "关于 $X$ 与 $Y$ 的边缘分布密度，并判断 $X$ 与 $Y$ 是否相互独立。",
+          "stem": "求关于 $X$ 与 $Y$ 的边缘分布密度，并判断 $X$ 与 $Y$ 是否相互独立。",
           "stem_images": [],
+          "fill_slots_count": 0,
           "options": null,
           "sub_questions": null
         }
@@ -442,19 +459,22 @@
       "type": "subjective",
       "stem": "设二维随机变量 $(X, Y)$ 的联合分布律如下表：\n\n| $X \\backslash Y$ | 0 | 1 | 2 |\n|:---:|:---:|:---:|:---:|\n| 0 | 0.1 | 0.05 | 0.25 |\n| 1 | 0 | 0.1 | 0.2 |\n| 2 | 0.2 | 0.1 | 0 |",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": [
         {
           "type": "subjective",
-          "stem": "$(X, Y)$ 关于 $X$、$Y$ 的边缘分布律；",
+          "stem": "求 $(X, Y)$ 关于 $X$、$Y$ 的边缘分布律。",
           "stem_images": [],
+          "fill_slots_count": 0,
           "options": null,
           "sub_questions": null
         },
         {
           "type": "subjective",
-          "stem": "$\\operatorname{Cov}(X, Y)$。",
+          "stem": "求 $\\operatorname{Cov}(X, Y)$。",
           "stem_images": [],
+          "fill_slots_count": 0,
           "options": null,
           "sub_questions": null
         }
@@ -462,21 +482,24 @@
     },
     {
       "type": "subjective",
-      "stem": "设总体 $X$ 服从区间 $[\\theta, 1]$ 上的均匀分布，其概率密度为：\n\n$$f(x;\\theta) = \\begin{cases} \\dfrac{1}{1-\\theta}, & \\theta \\leq x \\leq 1 \\\\ 0, & \\text{其他} \\end{cases}$$\n\n其中 $\\theta$ 为未知参数，$X_1, X_2, \\cdots, X_n$ 为来自总体 $X$ 的简单随机样本，求：",
+      "stem": "设总体 $X$ 服从区间 $[\\theta, 1]$ 上的均匀分布，其概率密度为：\n\n$$f(x;\\theta) = \\begin{cases} \\dfrac{1}{1-\\theta}, & \\theta \\leq x \\leq 1 \\\\ 0, & \\text{其他} \\end{cases}$$\n\n其中 $\\theta$ 为未知参数，$X_1, X_2, \\cdots, X_n$ 为来自总体 $X$ 的简单随机样本。",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": [
         {
           "type": "subjective",
-          "stem": "$\\theta$ 的矩估计量；",
+          "stem": "求 $\\theta$ 的矩估计量。",
           "stem_images": [],
+          "fill_slots_count": 0,
           "options": null,
           "sub_questions": null
         },
         {
           "type": "subjective",
-          "stem": "$\\theta$ 的最大似然估计量。",
+          "stem": "求 $\\theta$ 的最大似然估计量。",
           "stem_images": [],
+          "fill_slots_count": 0,
           "options": null,
           "sub_questions": null
         }
@@ -486,6 +509,7 @@
       "type": "subjective",
       "stem": "设 $\\xi$，$\\eta$ 是相互独立的随机变量，它们分别服从参数为 $\\lambda_1$，$\\lambda_2$ 的泊松分布，证明 $Z = \\xi + \\eta$ 服从参数为 $\\lambda_1 + \\lambda_2$ 的泊松分布。",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
@@ -493,6 +517,7 @@
       "type": "choices",
       "stem": "设 $P(B) = 0.6,\\ P(\\bar{A}B) = 0.3$，则 $P(\\overline{AB}) =$ （ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -521,6 +546,7 @@
       "type": "choices",
       "stem": "若 $f(x) = Ce^{-|x|/2},\\ -\\infty < x < +\\infty$ 为一概率密度函数，则常数 $C$ 为（ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -549,6 +575,7 @@
       "type": "choices",
       "stem": "假设总体 $X$ 服从正态分布 $N(6, \\delta^2)$，抽取容量为 5 的样本，观测值为 2, 4, 6, 8, 10，则样本方差 $s^2 =$ （ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -577,6 +604,7 @@
       "type": "choices",
       "stem": "设随机变量 $X, Y$ 的方差及相关系数分别为 $D(X) = 4,\\ D(Y) = 1,\\ \\rho_{XY} = -0.5$，则 $D(3X - 2Y + 1) =$ （ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -605,6 +633,7 @@
       "type": "choices",
       "stem": "设随机变量 $X, Y$ 相互独立，且 $X \\sim N(1,4),\\ Y \\sim N(-2,9)$，则 $2X - Y + 1$ 服从（ ）分布",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -631,36 +660,41 @@
     },
     {
       "type": "filling",
-      "stem": "设二维随机变量 $(X, Y)$ 的概率密度为 $f(x,y) = \\begin{cases} \\frac{3}{4}, & 0 \\leq x \\leq 1,\\ y^2 \\leq x \\\\ 0, & \\text{其它} \\end{cases}$，则 $P(X + Y \\leq 1) =$ ___",
+      "stem": "设二维随机变量 $(X, Y)$ 的概率密度为 $f(x,y) = \\begin{cases} \\frac{3}{4}, & 0 \\leq x \\leq 1,\\ y^2 \\leq x \\\\ 0, & \\text{其它} \\end{cases}$，则 $P(X + Y \\leq 1) =$ [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "袋中有红球 3 个、白球 2 个，共 5 个。从中任取 2 球，用 $X$ 表示取到白球数目，则 $X$ 的分布律为 ___",
+      "stem": "袋中有红球 3 个、白球 2 个，共 5 个。从中任取 2 球，用 $X$ 表示取到白球数目，则 $X$ 的分布律为 [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "设随机变量 $X$ 服从区间 $[-1, 3]$ 上的均匀分布，则由切比雪夫不等式估计 $P(|X - 1| < 2) \\geq$ ___",
+      "stem": "设随机变量 $X$ 服从区间 $[-1, 3]$ 上的均匀分布，则由切比雪夫不等式估计 $P(|X - 1| < 2) \\geq$ [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "设某商店每天销售的电脑服从参数为 5 的泊松分布，则每天恰销售 6 台电脑的概率为 ___",
+      "stem": "设某商店每天销售的电脑服从参数为 5 的泊松分布，则每天恰销售 6 台电脑的概率为 [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "加工某种零件需要两道工序。设第一、第二道工序的次品率分别为 0.2、0.1，且假设两道工序互不影响，则加工出来的零件是次品的概率为 ___",
+      "stem": "加工某种零件需要两道工序。设第一、第二道工序的次品率分别为 0.2、0.1，且假设两道工序互不影响，则加工出来的零件是次品的概率为 [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
@@ -668,12 +702,14 @@
       "type": "subjective",
       "stem": "一种产品的正品率为 0.8，使用一种简易方法检验时，将正品判为正品的概率为 0.9，将次品判为正品的概率为 0.2。现任取一件用此法检验：",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": [
         {
           "type": "subjective",
-          "stem": "求此件产品被判为正品的概率；",
+          "stem": "求此件产品被判为正品的概率。",
           "stem_images": [],
+          "fill_slots_count": 0,
           "options": null,
           "sub_questions": null
         },
@@ -681,6 +717,7 @@
           "type": "subjective",
           "stem": "当该产品被判为正品时，求此件产品确实为正品的概率。",
           "stem_images": [],
+          "fill_slots_count": 0,
           "options": null,
           "sub_questions": null
         }
@@ -688,21 +725,24 @@
     },
     {
       "type": "subjective",
-      "stem": "设随机变量 $X$ 的分布函数为：\n$$F(x) = \\begin{cases} 0, & x < 1 \\\\ \\ln x, & 1 \\leq x < e \\\\ 1, & x \\geq e \\end{cases}$$\n求：",
+      "stem": "设随机变量 $X$ 的分布函数为：\n\n$$F(x) = \\begin{cases} 0, & x < 1 \\\\ \\ln x, & 1 \\leq x < e \\\\ 1, & x \\geq e \\end{cases}$$",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": [
         {
           "type": "subjective",
-          "stem": "$P(0 < X < 2)$；",
+          "stem": "求 $P(0 < X < 2)$。",
           "stem_images": [],
+          "fill_slots_count": 0,
           "options": null,
           "sub_questions": null
         },
         {
           "type": "subjective",
-          "stem": "概率密度函数 $f(x)$。",
+          "stem": "求概率密度函数 $f(x)$。",
           "stem_images": [],
+          "fill_slots_count": 0,
           "options": null,
           "sub_questions": null
         }
@@ -710,14 +750,16 @@
     },
     {
       "type": "subjective",
-      "stem": "设二维随机变量 $(X, Y)$ 的联合密度函数为：\n$$f(x,y) = \\begin{cases} Cx^2 y, & x^2 \\leq y \\leq 1 \\\\ 0, & \\text{else} \\end{cases}$$",
+      "stem": "设二维随机变量 $(X, Y)$ 的联合密度函数为：\n\n$$f(x,y) = \\begin{cases} Cx^2 y, & x^2 \\leq y \\leq 1 \\\\ 0, & \\text{else} \\end{cases}$$",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": [
         {
           "type": "subjective",
-          "stem": "确定 $C$；",
+          "stem": "确定 $C$。",
           "stem_images": [],
+          "fill_slots_count": 0,
           "options": null,
           "sub_questions": null
         },
@@ -725,6 +767,7 @@
           "type": "subjective",
           "stem": "求关于 $X$ 的边缘密度函数。",
           "stem_images": [],
+          "fill_slots_count": 0,
           "options": null,
           "sub_questions": null
         }
@@ -734,27 +777,31 @@
       "type": "subjective",
       "stem": "设二维随机变量 $(X, Y)$ 在以 $(0,0)$，$(0,1)$，$(1,0)$ 为顶点的三角形区域上服从均匀分布，求 $X, Y$ 的相关系数 $\\rho_{XY}$。",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "subjective",
-      "stem": "设总体 $X$ 的概率密度为：\n$$f(x) = \\begin{cases} \\theta x^{\\theta-1}, & 0 \\leq x \\leq 1,\\ \\theta > 0 \\\\ 0, & \\text{else} \\end{cases}$$\n$X_1, \\cdots, X_n$ 是取自总体 $X$ 的样本，求参数 $\\theta$ 的矩估计量。",
+      "stem": "设总体 $X$ 的概率密度为：\n\n$$f(x) = \\begin{cases} \\theta x^{\\theta-1}, & 0 \\leq x \\leq 1,\\ \\theta > 0 \\\\ 0, & \\text{else} \\end{cases}$$\n\n$X_1, \\cdots, X_n$ 是取自总体 $X$ 的样本，求参数 $\\theta$ 的矩估计量。",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "subjective",
-      "stem": "设随机变量 $(X, Y)$ 具有概率密度：\n$$f(x,y) = \\begin{cases} \\dfrac{1}{\\pi}, & x^2 + y^2 \\leq 1 \\\\ 0, & \\text{else} \\end{cases}$$\n证明 $X$ 与 $Y$ 是不相关的，但 $X$ 与 $Y$ 不是相互独立的。",
+      "stem": "设随机变量 $(X, Y)$ 具有概率密度：\n\n$$f(x,y) = \\begin{cases} \\dfrac{1}{\\pi}, & x^2 + y^2 \\leq 1 \\\\ 0, & \\text{else} \\end{cases}$$\n\n证明 $X$ 与 $Y$ 是不相关的，但 $X$ 与 $Y$ 不是相互独立的。",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "choices",
-      "stem": "袋中有 5 个球（3 个新 2 个旧），每次取一个，无放回地取两次，则第二次取到新球的概率是（ ）",
+      "stem": "袋中有 5 个球（3 个新 2 个旧），每次取一个，无放回地取两次，则**第二次取到新球**的概率是（ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -783,6 +830,7 @@
       "type": "choices",
       "stem": "若随机变量 $X$ 的概率密度为：\n\n$$f(x) = \\begin{cases} k(1-x)^2, & -1 < x < 1 \\\\ 0, & \\text{其它} \\end{cases}$$\n\n则 $k =$ （ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -811,6 +859,7 @@
       "type": "choices",
       "stem": "设二维随机变量 $(X, Y)$ 的概率密度为：\n\n$$f(x,y) = \\begin{cases} B, & 1 \\leq x \\leq 3,\\ 2 \\leq y \\leq 4 \\\\ 0, & \\text{其它} \\end{cases}$$\n\n则 $B =$ （ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -839,6 +888,7 @@
       "type": "choices",
       "stem": "设随机变量 $X$ 服从指数分布 $E(2)$，则 $E(2X)$ 与 $D(4X)$ 分别为（ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -867,6 +917,7 @@
       "type": "choices",
       "stem": "设 $X_1, X_2, \\cdots, X_n$ 是取自 $X \\sim N(\\mu, \\sigma^2)$ 的样本，$\\bar{X}$ 与 $S$ 分别为样本均值与样本标准差，则 $\\bar{X} \\sim$ （ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -893,29 +944,33 @@
     },
     {
       "type": "filling",
-      "stem": "设 $A, B$ 为随机事件，$P(A) = 0.3,\\ P(A \\cup B) = 0.6$，若 $A, B$ 相互独立，则 $P(B) =$ ___",
+      "stem": "设 $A, B$ 为随机事件，$P(A) = 0.3,\\ P(A \\cup B) = 0.6$，若 $A, B$ 相互独立，则 $P(B) =$ [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "设 $X$ 的分布律为：\n\n| $X$ | 0 | 1 | 2 | 3 |\n|:---:|:---:|:---:|:---:|:---:|\n| $P$ | 0.1 | 0.25 | 0.3 | 0.35 |\n\n$F(x)$ 为 $X$ 的分布函数，则 $F(2.5) =$ ___",
+      "stem": "设 $X$ 的分布律为：\n\n| $X$ | 0 | 1 | 2 | 3 |\n|:---:|:---:|:---:|:---:|:---:|\n| $P$ | 0.1 | 0.25 | 0.3 | 0.35 |\n\n$F(x)$ 为 $X$ 的分布函数，则 $F(2.5) =$ [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "设随机变量 $X, Y$ 都服从区间 $[0, 1]$ 上的均匀分布，则 $E(3X + Y) =$ ___",
+      "stem": "设随机变量 $X, Y$ 都服从区间 $[0, 1]$ 上的均匀分布，则 $E(3X + Y) =$ [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "评价参数的估计量优劣的标准有无偏性、______和一致性。",
+      "stem": "评价参数的估计量优劣的标准有无偏性、[[slot]]和一致性。",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
@@ -923,26 +978,47 @@
       "type": "subjective",
       "stem": "设每支步枪射击飞机的命中率是 $p$，250 支步枪同时独立地进行一次射击，求飞机被击中的概率。",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "subjective",
-      "stem": "一批产品中有 20% 的次品，现进行重复抽样检查，共取五件样品，分别计算这五件样品中\"恰好有三件次品\"和\"至多有三件次品\"的概率。",
+      "stem": "一批产品中有 20% 的次品，现进行重复抽样检查，共取五件样品，分别计算这五件样品中",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
-      "sub_questions": null
+      "sub_questions": [
+        {
+          "type": "subjective",
+          "stem": "恰好有三件次品的概率。",
+          "stem_images": [],
+          "fill_slots_count": 0,
+          "options": null,
+          "sub_questions": null
+        },
+        {
+          "type": "subjective",
+          "stem": "至多有三件次品的概率。",
+          "stem_images": [],
+          "fill_slots_count": 0,
+          "options": null,
+          "sub_questions": null
+        }
+      ]
     },
     {
       "type": "subjective",
       "stem": "设随机变量 $(X, Y)$ 的联合密度函数为：\n\n$$f(x,y) = \\begin{cases} Cxe^{-y}, & 0 < x < y < +\\infty \\\\ 0, & \\text{其他} \\end{cases}$$",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": [
         {
           "type": "subjective",
-          "stem": "求常数 $C$；",
+          "stem": "求常数 $C$。",
           "stem_images": [],
+          "fill_slots_count": 0,
           "options": null,
           "sub_questions": null
         },
@@ -950,6 +1026,7 @@
           "type": "subjective",
           "stem": "求 $P(X + Y < 1)$。",
           "stem_images": [],
+          "fill_slots_count": 0,
           "options": null,
           "sub_questions": null
         }
@@ -959,13 +1036,23 @@
       "type": "subjective",
       "stem": "设随机变量 $X$ 与 $Y$ 相互独立，且 $E(X) = E(Y) = 3,\\ D(X) = 12,\\ D(Y) = 16$，求 $E(3X - 2Y)$，$D(2X - 3Y)$。",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "subjective",
-      "stem": "设总体 $X$ 的密度函数为：\n\n$$f(x,\\theta) = \\begin{cases} \\theta x^{\\theta-1}, & 0 < x < 1 \\\\ 0, & \\text{其它} \\end{cases}$$\n\n$X_1, X_2, \\cdots, X_n$ 是来自总体 $X$ 的样本，求 $\\theta$ 的极大似然估计值。",
+      "stem": "各零件的重量（单位：千克）是随机变量，它们相互独立且服从相同的分布，其数学期望为 0.5，方差为 0.01，求 400 个零件的总重量**超过 202** 的概率。（$\\Phi(1) = 0.8413$）",
       "stem_images": [],
+      "fill_slots_count": 0,
+      "options": null,
+      "sub_questions": null
+    },
+    {
+      "type": "subjective",
+      "stem": "设总体 $X$ 的密度函数为：\n\n$$f(x,\\theta) = \\begin{cases} \\theta x^{\\theta-1}, & 0 < x < 1 \\\\ 0, & \\text{其它} \\end{cases}$$\n\n$X_1, X_2, \\cdots, X_n$ 是来自总体 $X$ 的样本，求 $\\theta$ 的**极大似然估计值**。",
+      "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
@@ -973,6 +1060,7 @@
       "type": "choices",
       "stem": "已知 $P(A) = 0.8,\\ P(A - B) = 0.6,\\ P(B) = 0.3$，则 $P(A \\cup \\bar{B}) =$ （ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -1001,6 +1089,7 @@
       "type": "choices",
       "stem": "若 $F(x) = K + \\dfrac{1}{\\pi}\\arctan x,\\ (-\\infty < x < +\\infty)$ 为随机变量 $X$ 的分布函数，则常数 $K$ 为（ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -1027,8 +1116,9 @@
     },
     {
       "type": "choices",
-      "stem": "下列关于二维随机变量分布函数 $F(x, y)$ 说法不正确的是（ ）",
+      "stem": "下列关于二维随机变量分布函数 $F(x, y)$ 说法**不正确**的是（ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -1057,6 +1147,7 @@
       "type": "choices",
       "stem": "$X_1, X_2, \\cdots, X_n$ 是来自总体 $X$ 的样本，则下列结论正确的是（ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -1083,36 +1174,41 @@
     },
     {
       "type": "filling",
-      "stem": "某射手向一目标连续射击三次，用 $A_i$ 表示事件\"第 $i$ 次射击命中目标\"（$i = 1, 2, 3$），则 $\\bar{A}_1\\bar{A}_2A_3$ 表示事件 ___",
+      "stem": "某射手向一目标连续射击三次，用 $A_i$ 表示事件",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "设 $F_1(x)$ 与 $F_2(x)$ 分别为随机变量 $X_1, X_2$ 的分布函数，为使 $F(x) = \\dfrac{1}{3}F_1(x) - kF_2(x)$ 是某一随机变量的分布函数，则 $k =$ ___",
+      "stem": "设 $F_1(x)$ 与 $F_2(x)$ 分别为随机变量 $X_1, X_2$ 的分布函数，为使 $F(x) = \\dfrac{1}{3}F_1(x) - kF_2(x)$ 是某一随机变量的分布函数，则 $k =$ [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "设二维随机变量 $(X, Y)$ 的分布函数为 $F(x, y)$，则 $F(-\\infty, y) =$ ___，$F(+\\infty, +\\infty) =$ ___",
+      "stem": "设二维随机变量 $(X, Y)$ 的分布函数为 $F(x, y)$，则 $F(-\\infty, y) =$ [[slot]]，$F(+\\infty, +\\infty) =$ [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 2,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "设 $E(X) = 1,\\ E(Y) = 2$，则 $E(2X - Y + 1) =$ ___",
+      "stem": "设 $E(X) = 1,\\ E(Y) = 2$，则 $E(2X - Y + 1) =$ [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "若随机变量 $X_1, X_2, \\cdots, X_n$ 满足 ___ 和 ___，则称之为总体 $X$ 的一个简单随机样本。",
+      "stem": "若随机变量 $X_1, X_2, \\cdots, X_n$ 满足 [[slot]] 和 [[slot]]，则称之为总体 $X$ 的一个**简单随机样本**。",
       "stem_images": [],
+      "fill_slots_count": 2,
       "options": null,
       "sub_questions": null
     },
@@ -1120,12 +1216,14 @@
       "type": "subjective",
       "stem": "某大学的全体男生中，有 60% 的人爱好踢足球，50% 的人爱好打篮球，30% 的人两项运动都爱好，从该校全体男生中任选一人，求：",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": [
         {
           "type": "subjective",
-          "stem": "该生踢足球或打篮球至少爱好一项运动的概率；",
+          "stem": "该生踢足球或打篮球至少爱好一项运动的概率。",
           "stem_images": [],
+          "fill_slots_count": 0,
           "options": null,
           "sub_questions": null
         },
@@ -1133,6 +1231,7 @@
           "type": "subjective",
           "stem": "该生不爱好踢足球也不爱好打篮球的概率。",
           "stem_images": [],
+          "fill_slots_count": 0,
           "options": null,
           "sub_questions": null
         }
@@ -1142,12 +1241,14 @@
       "type": "subjective",
       "stem": "假定打一次电话所占有的时间（单位：分）服从以 $\\lambda = 0.1$ 为参数的指数分布。若某人刚好在你前面走进公用电话亭，试求：",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": [
         {
           "type": "subjective",
-          "stem": "你等待超过 10 分钟的概率；",
+          "stem": "你等待超过 10 分钟的概率。",
           "stem_images": [],
+          "fill_slots_count": 0,
           "options": null,
           "sub_questions": null
         },
@@ -1155,6 +1256,7 @@
           "type": "subjective",
           "stem": "你的等待时间在 10 分钟到 20 分钟的概率。",
           "stem_images": [],
+          "fill_slots_count": 0,
           "options": null,
           "sub_questions": null
         }
@@ -1164,13 +1266,15 @@
       "type": "subjective",
       "stem": "设离散型随机变量 $X$ 的分布律为：\n\n| $X$ | -2 | 0 | 2 |\n|:---:|:---:|:---:|:---:|\n| $p_k$ | 0.4 | 0.3 | 0.3 |\n\n求 $E(X),\\ E(X^2),\\ E(3X^2 + 5)$。",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "subjective",
-      "stem": "各零件的重量（单位：千克）是随机变量，它们相互独立且服从相同的分布，其数学期望为 0.5，方差为 0.01，求 400 个零件的总重量超过 202 的概率。（$\\Phi(1) = 0.8413$）",
+      "stem": "各零件的重量（单位：千克）是随机变量，它们相互独立且服从相同的分布，其数学期望为 0.5，方差为 0.01，求 400 个零件的总重量**超过 202** 的概率。（$\\Phi(1) = 0.8413$）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
@@ -1178,6 +1282,7 @@
       "type": "subjective",
       "stem": "设某种产品的寿命 $T$ 服从指数分布，其概率密度为：\n\n$$f(x, \\lambda) = \\begin{cases} \\lambda e^{-\\lambda x}, & x > 0 \\\\ 0, & x \\leq 0 \\end{cases}$$\n\n其中 $\\lambda > 0$ 为未知参数，现抽得 $n$ 个这种产品，测得其寿命数据为 $t_1, t_2, \\cdots, t_n$，求参数 $\\lambda$ 的矩估计值。",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
@@ -1185,6 +1290,7 @@
       "type": "choices",
       "stem": "设事件 $A, B$ 概率分别为 $\\dfrac{1}{3}$ 和 $\\dfrac{1}{2}$，则当 $A, B$ 互斥时，$P(\\bar{B} \\cup A) =$ （ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -1213,6 +1319,7 @@
       "type": "choices",
       "stem": "设 $P\\{X_i = k\\} = p^k(1-p)^{1-k},\\ k = 0,1,\\ i = 1, 2, \\cdots, 100$，则 $\\sum_{i=1}^{n} X_i$ 服从（ ）分布",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -1241,6 +1348,7 @@
       "type": "choices",
       "stem": "假设连续函数 $F(x)$ 是分布函数，且 $F(0) = 0$，则下列函数能作为分布函数的是（ ）\n\n$$G_1(x) = \\begin{cases} 1 - F\\!\\left(\\frac{1}{x}\\right), & x > 1 \\\\ 0, & x \\leq 1 \\end{cases} \\quad G_2(x) = \\begin{cases} F(x) + F\\!\\left(\\frac{1}{x}\\right), & x > 1 \\\\ 0, & x \\leq 1 \\end{cases}$$\n\n$$G_3(x) = \\begin{cases} 1 + F\\!\\left(\\frac{1}{x}\\right), & x > 1 \\\\ 0, & x \\leq 1 \\end{cases} \\quad G_4(x) = \\begin{cases} F(x) - F\\!\\left(\\frac{1}{x}\\right), & x > 1 \\\\ 0, & x \\leq 1 \\end{cases}$$",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -1269,6 +1377,7 @@
       "type": "choices",
       "stem": "设随机变量 $X$，$E(X) = a,\\ E(X^2) = b$，$c$ 为常数，则 $D(cX) =$ （ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -1295,8 +1404,9 @@
     },
     {
       "type": "choices",
-      "stem": "设总体 $X$ 的数学期望 $\\mu$ 已知，方差 $\\sigma^2$ 未知，$X_1, X_2, \\cdots, X_n$ 是来自总体 $X$ 的一个样本，则下列不是统计量的表达式是（ ）",
+      "stem": "设总体 $X$ 的数学期望 $\\mu$ 已知，方差 $\\sigma^2$ 未知，$X_1, X_2, \\cdots, X_n$ 是来自总体 $X$ 的一个样本，则下列**不是统计量**的表达式是（ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -1323,50 +1433,57 @@
     },
     {
       "type": "filling",
-      "stem": "甲、乙两人独立地对同一目标各射击一次，其命中率分别为 0.6 和 0.5，则目标被命中的概率是 ___",
+      "stem": "甲、乙两人独立地对同一目标各射击一次，其命中率分别为 0.6 和 0.5，则目标被命中的概率是 [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "设连续型随机变量 $(X, Y)$ 在以原点为中心、各边平行于坐标轴、边长为 $2a$ 和 $2b$ 的矩形内服从均匀分布，则 $(X, Y)$ 的概率密度是 ___",
+      "stem": "设连续型随机变量 $(X, Y)$ 在以原点为中心、各边平行于坐标轴、边长为 $2a$ 和 $2b$ 的矩形内服从均匀分布，则 $(X, Y)$ 的概率密度是 [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "设随机变量 $X \\sim N(5, 2^2),\\ Y \\sim B(n, p)$，且 $E(X) = E(Y),\\ D(X) = D(Y)$，则 $n =$ ___，$p =$ ___",
+      "stem": "设随机变量 $X \\sim N(5, 2^2),\\ Y \\sim B(n, p)$，且 $E(X) = E(Y),\\ D(X) = D(Y)$，则 $n =$ [[slot]]，$p =$ [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 2,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "设 $X$ 与 $Y$ 独立，且 $\\dfrac{X}{P}\\bigg|_{-1}^{\\ 1}_{0.5\\ 0.5}$，$\\dfrac{Y}{P}\\bigg|_{-1}^{\\ 1}_{0.5\\ 0.5}$，求 $D(XY)$ = ___",
+      "stem": "设 $X$ 与 $Y$ 独立，且 $X$ 的分布律为 $P(X=-1)=0.5, P(X=1)=0.5$，$Y$ 的分布律为 $P(Y=-1)=0.5, P(Y=1)=0.5$，求 $D(XY) =$ [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "设由来自总体 $X \\sim N(a, 0.9^2)$ 容量为 9 的样本，得样本均值 $\\bar{x} = 1$，则 $a$ 的置信度为 0.95 的置信区间为 ___",
+      "stem": "设由来自总体 $X \\sim N(a, 0.9^2)$ 容量为 9 的样本，得样本均值 $\\bar{x} = 1$，则 $a$ 的置信度为 0.95 的置信区间为 [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "subjective",
-      "stem": "某人忘记了电话号码的最后一个数字，因而随机地拨号，求他拨号不超过两次而接通所需电话的概率。",
+      "stem": "某人忘记了电话号码的最后一个数字，因而随机地拨号，求他**拨号不超过两次**而接通所需电话的概率。",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "subjective",
-      "stem": "由某机器生产的螺栓长度（cm）$X \\sim N(10.05, 0.06^2)$，规定长度在 $10.05 \\pm 0.12$ 内为合格品，求一螺栓为不合格品的概率。（$\\Phi(2) = 0.9772$）",
+      "stem": "由某机器生产的螺栓长度（cm）$X \\sim N(10.05, 0.06^2)$，规定长度在 $10.05 \\pm 0.12$ 内为合格品，求一螺栓为**不合格品**的概率。（$\\Phi(2) = 0.9772$）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
@@ -1374,6 +1491,7 @@
       "type": "subjective",
       "stem": "设随机变量 $(X, Y)$ 的分布密度为：\n\n$$f(x,y) = \\begin{cases} e^{-y}, & 0 < x < y \\\\ 0, & \\text{其它} \\end{cases}$$\n\n试求关于 $(X, Y)$ 的边缘密度函数，并判断是否独立。",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
@@ -1381,13 +1499,15 @@
       "type": "subjective",
       "stem": "设 $(X, Y)$ 是相互独立的随机变量，其概率密度分别为：\n\n$$f_X(x) = \\begin{cases} 2x, & 0 \\leq x \\leq 1 \\\\ 0, & \\text{其他} \\end{cases} \\qquad f_Y(y) = \\begin{cases} e^{-(y-5)}, & y > 5 \\\\ 0, & \\text{其他} \\end{cases}$$\n\n求 $(X, Y)$ 的联合概率密度 $f(x, y)$。",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "subjective",
-      "stem": "由电站供应一万户用电，设用电高峰期每户用电的概率为 0.9，利用中心极限定理，计算同时用电户数在 9030 户以上的概率。（$\\Phi(1) = 0.8413$）",
+      "stem": "由电站供应一万户用电，设用电高峰期每户用电的概率为 0.9，利用中心极限定理，计算**同时用电户数在 9030 户以上**的概率。（$\\Phi(1) = 0.8413$）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
@@ -1395,13 +1515,15 @@
       "type": "subjective",
       "stem": "总体 $X$ 的概率分布为：\n\n| $X$ | 0 | 1 | 2 | 3 |\n|:---:|:---:|:---:|:---:|:---:|\n| $P$ | $(1-\\theta)^2$ | $2\\theta(1-\\theta)$ | $\\theta^2$ | $1-2\\theta$ |\n\n利用总体 $X$ 的如下样本值：3, 1, 3, 0, 3, 1, 2, 3，求 $\\theta$ 的矩估计值和极大似然估计值。",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "若随机变量 $\\xi$ 在 $(1, 6)$ 上服从均匀分布，则方程 $x^2 + \\xi x + 1 = 0$ 有实根的概率为 ___",
+      "stem": "若随机变量 $\\xi$ 在 $(1, 6)$ 上服从均匀分布，则方程 $x^2 + \\xi x + 1 = 0$ 有实根的概率为 [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
@@ -1409,6 +1531,7 @@
       "type": "choices",
       "stem": "若两事件 $A$、$B$ 满足 $P(AB) = 0$，则（ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -1432,6 +1555,7 @@
       "type": "choices",
       "stem": "设 $X$ 服从正态分布 $N(1, \\sigma^2)$，其分布函数为 $F(x)$，则对任意实数 $x$ 有（ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -1460,6 +1584,7 @@
       "type": "choices",
       "stem": "设两个相互独立的随机变量 $X$ 和 $Y$ 分别服从正态分布 $N(0,1)$ 和 $N(1,1)$，则正确的是（ ）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": [
         {
           "label": "A",
@@ -1486,15 +1611,17 @@
     },
     {
       "type": "filling",
-      "stem": "设随机变量 $X \\sim t(n),\\ Y \\sim F(1, n)$，给定 $\\alpha\\ (0 < \\alpha < 0.5)$，常数 $c$ 满足 $P(X > c) = \\alpha$，则 $P\\{Y > c^2\\} =$ ___",
+      "stem": "设随机变量 $X \\sim t(n),\\ Y \\sim F(1, n)$，给定 $\\alpha\\ (0 < \\alpha < 0.5)$，常数 $c$ 满足 $P(X > c) = \\alpha$，则 $P\\{Y > c^2\\} =$ [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "filling",
-      "stem": "设随机变量 $X$ 服从二项分布 $B(4, 0.8)$，$Y$ 服从泊松分布 $P(4)$，已知 $D(X + Y) = 3.6$，则 $X, Y$ 的相关系数 $\\rho_{XY} =$ ___",
+      "stem": "设随机变量 $X$ 服从二项分布 $B(4, 0.8)$，$Y$ 服从泊松分布 $P(4)$，已知 $D(X + Y) = 3.6$，则 $X, Y$ 的相关系数 $\\rho_{XY} =$ [[slot]]",
       "stem_images": [],
+      "fill_slots_count": 1,
       "options": null,
       "sub_questions": null
     },
@@ -1502,6 +1629,7 @@
       "type": "subjective",
       "stem": "将 3 个球随机地放入 4 个杯子中，求杯中球的最大个数分别为 1、2、3 的概率。",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
@@ -1509,20 +1637,23 @@
       "type": "subjective",
       "stem": "设二维随机变量 $(X, Y)$ 具有概率密度函数：\n\n$$f(x,y) = \\begin{cases} 8xy^3, & 0 \\leq x < 1,\\ 0 \\leq y < 1 \\\\ 0, & \\text{其它} \\end{cases}$$\n\n求 $X$ 与 $Y$ 的边缘密度，并判断是否相互独立。",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "subjective",
-      "stem": "一袋中有 5 个乒乓球，编号为 1, 2, 3, 4, 5，在其中同时任取 3 个，记 $X$ 为取出 3 个球中的最大编号，求 $E(X),\\ D(X)$。",
+      "stem": "一袋中有 5 个乒乓球，编号为 1, 2, 3, 4, 5，在其中同时任取 3 个，记 $X$ 为取出 3 个球中的**最大编号**，求 $E(X),\\ D(X)$。",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
     {
       "type": "subjective",
-      "stem": "有一批建筑房屋用的木柱，其中 80% 的长度不小于 3m，现从这批木柱中随机地取出 100 根，问其中至少有 30 根短于 3m 的概率是多少？（$\\Phi(2.5) = 0.9938$）",
+      "stem": "有一批建筑房屋用的木柱，其中 80% 的长度不小于 3m，现从这批木柱中随机地取出 100 根，问其中**至少有 30 根短于 3m** 的概率是多少？（$\\Phi(2.5) = 0.9938$）",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     },
@@ -1530,6 +1661,7 @@
       "type": "subjective",
       "stem": "设总体 $X$ 的概率密度为：\n\n$$f(x) = \\begin{cases} \\theta, & 0 < x < 1 \\\\ 1 - \\theta, & 1 \\leq x < 2 \\\\ 0, & \\text{其他} \\end{cases}$$\n\n其中 $\\theta$ 是未知参数，$0 < \\theta < 1$。$X_1, X_2, \\cdots, X_n$ 为来自总体 $X$ 的简单随机样本，记 $N$ 为样本值 $x_1, x_2, \\cdots, x_n$ 中小于 1 的个数。求 $\\theta$ 的矩估计值和极大似然估计值。",
       "stem_images": [],
+      "fill_slots_count": 0,
       "options": null,
       "sub_questions": null
     }
