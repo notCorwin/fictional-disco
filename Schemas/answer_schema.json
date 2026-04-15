@@ -3,7 +3,7 @@
   "strict": true,
   "schema": {
     "type": "object",
-    "description": "答案生成阶段的镜像树 schema。当前仍使用递归结构；如目标 provider 不支持递归 $ref，需要仿照 question_schema.json 展开为固定层数版本。",
+    "description": "答案生成阶段的 provider 兼容镜像树 schema。为了兼容 Claude 当前路由，不使用递归 $ref 与其他更窄 provider 子集不稳定的约束；更严格的业务规则下沉到程序校验。",
     "properties": {
       "answer": {
         "anyOf": [
@@ -14,7 +14,7 @@
           },
           { "type": "null" }
         ],
-        "description": "该题的最终答案。选择题填选项标号如 \"C\"；填空题输出字符串数组（对应每个 [[slot]]）；判断题填 \"正确\" 或 \"错误\"；有子题的父题为 null"
+        "description": "该题的最终答案。选择题填选项标号如 \"C\" 或 \"AC\"；填空题输出字符串数组（对应每个 [[slot]]）；判断题填 \"正确\" 或 \"错误\"；主观题填最终结论；有子题的父题为 null"
       },
       "solution": {
         "anyOf": [{ "type": "string" }, { "type": "null" }],
@@ -24,7 +24,7 @@
         "anyOf": [
           {
             "type": "array",
-            "items": { "$ref": "#/$defs/answer_node" }
+            "items": { "$ref": "#/$defs/answer_level_2" }
           },
           { "type": "null" }
         ],
@@ -34,20 +34,23 @@
     "required": ["answer", "solution", "sub_answers"],
     "additionalProperties": false,
     "$defs": {
-      "answer_node": {
+      "answer_value": {
+        "anyOf": [
+          { "type": "string" },
+          {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          { "type": "null" }
+        ],
+        "description": "单题的答案值。具体题型与答案格式的一致性由 validate.py 负责。"
+      },
+      "answer_level_2": {
         "type": "object",
-        "description": "单个子题的答案节点（递归结构）",
+        "description": "单个子题的答案节点。最多允许 5 层答案树；当前为第 2 层。更严格的业务规则由 validate.py 负责。",
         "properties": {
           "answer": {
-            "anyOf": [
-              { "type": "string" },
-              {
-                "type": "array",
-                "items": { "type": "string" }
-              },
-              { "type": "null" }
-            ],
-            "description": "该子题的最终答案，规则同顶层"
+            "$ref": "#/$defs/answer_value"
           },
           "solution": {
             "anyOf": [{ "type": "string" }, { "type": "null" }],
@@ -57,11 +60,80 @@
             "anyOf": [
               {
                 "type": "array",
-                "items": { "$ref": "#/$defs/answer_node" }
+                "items": { "$ref": "#/$defs/answer_level_3" }
               },
               { "type": "null" }
             ],
             "description": "更深层子题的答案列表，无则为 null"
+          }
+        },
+        "required": ["answer", "solution", "sub_answers"],
+        "additionalProperties": false
+      },
+      "answer_level_3": {
+        "type": "object",
+        "description": "单个子题的答案节点。最多允许 5 层答案树；当前为第 3 层。更严格的业务规则由 validate.py 负责。",
+        "properties": {
+          "answer": {
+            "$ref": "#/$defs/answer_value"
+          },
+          "solution": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "description": "该子题的分步解析过程"
+          },
+          "sub_answers": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": { "$ref": "#/$defs/answer_level_4" }
+              },
+              { "type": "null" }
+            ],
+            "description": "更深层子题的答案列表，无则为 null"
+          }
+        },
+        "required": ["answer", "solution", "sub_answers"],
+        "additionalProperties": false
+      },
+      "answer_level_4": {
+        "type": "object",
+        "description": "单个子题的答案节点。最多允许 5 层答案树；当前为第 4 层。更严格的业务规则由 validate.py 负责。",
+        "properties": {
+          "answer": {
+            "$ref": "#/$defs/answer_value"
+          },
+          "solution": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "description": "该子题的分步解析过程"
+          },
+          "sub_answers": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": { "$ref": "#/$defs/answer_level_5" }
+              },
+              { "type": "null" }
+            ],
+            "description": "更深层子题的答案列表，无则为 null"
+          }
+        },
+        "required": ["answer", "solution", "sub_answers"],
+        "additionalProperties": false
+      },
+      "answer_level_5": {
+        "type": "object",
+        "description": "单个子题的答案节点。最多允许 5 层答案树；当前为第 5 层。该层不允许继续嵌套子题。更严格的业务规则由 validate.py 负责。",
+        "properties": {
+          "answer": {
+            "$ref": "#/$defs/answer_value"
+          },
+          "solution": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "description": "该子题的分步解析过程"
+          },
+          "sub_answers": {
+            "type": "null",
+            "description": "第 5 层不允许继续嵌套子题，必须为 null"
           }
         },
         "required": ["answer", "solution", "sub_answers"],
