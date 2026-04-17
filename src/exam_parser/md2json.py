@@ -1,4 +1,4 @@
-"""Step 2: 将 Markdown 解析为结构化题目 JSON。"""
+"""阶段 2：将 Markdown 解析为结构化题目 JSON。"""
 
 from __future__ import annotations
 

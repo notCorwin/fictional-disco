@@ -1,4 +1,4 @@
-"""阶段 4 answers 模块的 TDD 测试。"""
+"""阶段 4：answers 模块的 TDD 测试。"""
 
 from __future__ import annotations
 

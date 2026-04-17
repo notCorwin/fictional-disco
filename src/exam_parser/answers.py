@@ -1,4 +1,4 @@
-"""Step 4: 为结构化题目生成答案与解析。"""
+"""阶段 4：为结构化题目生成答案与解析。"""
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ from .config import OPENROUTER_API_KEY, OPENROUTER_MODEL_NAME, PROMPTS_DIR, SCHE
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 REQUEST_TIMEOUT = 180
 ANSWER_SCHEMA_PATH = SCHEMAS_DIR / "answer_schema.json"
-PROMPT_PATH = PROMPTS_DIR / "prompt_step4.md"
+PROMPT_PATH = PROMPTS_DIR / "prompt_answers.md"
 
 FALLBACK_SYSTEM_PROMPT = """你是一个专业的学科解题器。
 

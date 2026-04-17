@@ -158,27 +158,27 @@ def pdf_to_markdown(
 
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    print("[Step 1] Preuploading PDF...")
+    print("[阶段1] Preuploading PDF...")
     uid, put_url = _preupload(model=model)
 
-    print(f"[Step 1] Uploading {pdf_path.name} (uid={uid})...")
+    print(f"[阶段1] Uploading {pdf_path.name} (uid={uid})...")
     _put_file(pdf_path, put_url)
 
-    print("[Step 1] Waiting for parse to complete...")
+    print("[阶段1] Waiting for parse to complete...")
     _wait_for_parse(uid, poll_interval=poll_interval)
 
-    print("[Step 1] Requesting markdown export...")
+    print("[阶段1] Requesting markdown export...")
     _request_export(uid)
 
-    print("[Step 1] Waiting for export...")
+    print("[阶段1] Waiting for export...")
     download_url = _wait_for_export(uid, poll_interval=poll_interval)
 
-    print("[Step 1] Downloading zip...")
+    print("[阶段1] Downloading zip...")
     zip_path = _download_zip(download_url, output_dir)
 
-    print("[Step 1] Extracting...")
+    print("[阶段1] Extracting...")
     md_path, images_dir = _extract_zip(zip_path, output_dir)
     zip_path.unlink(missing_ok=True)
 
-    print(f"[Step 1] Done. md={md_path}, images={images_dir}")
+    print(f"[阶段1] Done. md={md_path}, images={images_dir}")
     return md_path, images_dir

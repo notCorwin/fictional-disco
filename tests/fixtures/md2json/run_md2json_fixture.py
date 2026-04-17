@@ -8,8 +8,8 @@
 
 说明：
 - 这是一个独立脚本，不依赖 pytest。
-- 当前仓库尚未提交 src/exam_parser/md2json.py 与 prompts/prompt_md2json.md，
-  因此此脚本内置了最小可用的请求封装与提示词回退逻辑。
+- 当 `exam_parser.md2json` 无法导入或本地提示词不可用时，
+  此脚本会退回到内置的最小可用请求封装与提示词逻辑。
 """
 
 from __future__ import annotations

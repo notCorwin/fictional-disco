@@ -8,7 +8,7 @@
 
 说明：
 - 这是一个独立脚本，不依赖 pytest。
-- 当前只处理 PDF 输入；图片样本属于 Step 0 范畴，不在这里直接执行。
+- 当前只处理 PDF 输入；图片样本属于阶段 0 范畴，不在这里直接执行。
 """
 
 from __future__ import annotations

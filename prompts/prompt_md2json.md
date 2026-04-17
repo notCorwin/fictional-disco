@@ -1,4 +1,4 @@
-# Step 3 Prompt: Markdown → 结构化 JSON
+# md2json 提示词：Markdown → 结构化 JSON
 
 ## System Prompt
 
