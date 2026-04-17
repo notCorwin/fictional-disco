@@ -134,7 +134,7 @@ def test_question_to_answers_posts_structured_output_request(
     messages = request["json"]["messages"]
     assert messages[0]["role"] == "system"
     assert messages[1]["role"] == "user"
-    assert "阅读材料并回答问题" in messages[1]["content"]
+    assert "请为以下题目生成正确答案和完整解析" in messages[1]["content"]
     assert '"sub_questions"' in messages[1]["content"]
 
 
@@ -208,7 +208,7 @@ def test_generate_answers_for_questions_calls_llm_once_per_top_level_question(
 
     assert merged == expected_questions_with_answers
     assert len(captured_bodies) == 2
-    assert "阅读材料并回答问题" in captured_bodies[0]["messages"][1]["content"]
+    assert "请为以下题目生成正确答案和完整解析" in captured_bodies[0]["messages"][1]["content"]
     assert "随机变量的期望一定存在" in captured_bodies[1]["messages"][1]["content"]
 
 

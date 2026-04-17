@@ -1,0 +1,63 @@
+{
+  "questions": [
+    {
+      "type": "subjective",
+      "stem": "阅读材料并回答问题。",
+      "stem_images": [],
+      "fill_slots_count": 0,
+      "options": null,
+      "sub_questions": [
+        {
+          "type": "filling",
+          "stem": "已知事件 A 的概率为 [[slot]]。",
+          "stem_images": [],
+          "fill_slots_count": 1,
+          "options": null,
+          "sub_questions": null,
+          "answer": [
+            "1/2"
+          ],
+          "solution": "由题意可直接得到 $P(A)=\\frac{1}{2}$。"
+        },
+        {
+          "type": "choices",
+          "stem": "下列说法正确的是（ ）。",
+          "stem_images": [],
+          "fill_slots_count": 0,
+          "options": [
+            {
+              "label": "A",
+              "text": "A 与 B 一定互斥",
+              "image": null
+            },
+            {
+              "label": "B",
+              "text": "A 与 B 可以同时发生",
+              "image": null
+            },
+            {
+              "label": "C",
+              "text": "P(A) 一定大于 1",
+              "image": null
+            }
+          ],
+          "sub_questions": null,
+          "answer": "B",
+          "solution": "逐项判断可知只有 B 成立。"
+        }
+      ],
+      "answer": null,
+      "solution": null
+    },
+    {
+      "type": "judging",
+      "stem": "随机变量的期望一定存在。",
+      "stem_images": [],
+      "fill_slots_count": 0,
+      "options": null,
+      "sub_questions": null,
+      "answer": "错误",
+      "solution": "并非所有随机变量都有有限期望，因此该说法错误。"
+    }
+  ]
+}

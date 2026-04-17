@@ -70,7 +70,25 @@ def _load_prompt_parts() -> tuple[str, str]:
     parts = content.split("\n---\n", maxsplit=1)
     if len(parts) == 2:
         return parts[0].strip(), parts[1].strip()
+
+    system_marker = "## System Prompt"
+    user_marker = "## User Prompt 模板"
+    if system_marker in content and user_marker in content:
+        _, after_system = content.split(system_marker, maxsplit=1)
+        system_part, user_part = after_system.split(user_marker, maxsplit=1)
+        return system_part.strip(), user_part.strip()
+
     return FALLBACK_SYSTEM_PROMPT, content
+
+
+def _render_user_prompt(user_template: str, markdown_text: str) -> str:
+    try:
+        return user_template.format(
+            markdown=markdown_text,
+            markdown_content=markdown_text,
+        )
+    except KeyError as exc:
+        raise Md2JsonError(f"unsupported prompt placeholder: {exc.args[0]}") from exc
 
 
 def _extract_message_content(payload: dict[str, Any]) -> str:
@@ -184,7 +202,7 @@ def _infer_question_type(question: dict[str, Any]) -> str:
     if question_type in {"choices", "filling", "judging", "subjective"}:
         return question_type
 
-    stem = str(question.get("stem") or "")
+    stem = _normalize_fill_slots(str(question.get("stem") or ""))
     if isinstance(question.get("options"), list):
         return "choices"
     if "[[slot]]" in stem:
@@ -286,7 +304,7 @@ def markdown_to_questions(markdown_text: str, *, model: str | None = None) -> di
             "model": model_name,
             "messages": [
                 {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_template.format(markdown=markdown_text)},
+                {"role": "user", "content": _render_user_prompt(user_template, markdown_text)},
             ],
             "response_format": {
                 "type": "json_schema",

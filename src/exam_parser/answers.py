@@ -304,7 +304,7 @@ def merge_answer_tree(question: dict[str, Any], answer_tree: dict[str, Any]) -> 
 
     merged["sub_questions"] = [
         merge_answer_tree(sub_question, sub_answer)
-        for sub_question, sub_answer in zip(question_sub_questions, answer_sub_answers, strict=True)
+        for sub_question, sub_answer in zip(question_sub_questions, answer_sub_answers)
     ]
     return merged
 
