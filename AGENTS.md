@@ -153,9 +153,8 @@ fictional-disco/
 
 1. OpenRouter 上的不同 provider 对 Structured Outputs 的 JSON Schema 支持能力不一致，不能默认支持完整 JSON Schema。
 2. Claude 当前路由已验证可在“5 层非递归 question schema”下成功返回完整题目结构。
-3. `minimum`、递归 `$ref` 一类约束应谨慎使用；更适合交给 `validate.py` 在程序侧完成。
+3. `minimum`、递归 `$ref` 一类约束应谨慎使用；Validate 适合在程序侧完成。
 4. Fixture 不应被视为唯一真值；必须对照源 Markdown 做题号连续性与覆盖率校验。
-5. 目前 `tests/fixtures/md2json/expected/概率论7套真题.json` 已更新为 Claude 当前输出基线。
 
 ---
 

@@ -36,50 +36,76 @@ def answers_fixtures_dir(fixtures_dir: Path) -> Path:
 
 
 @pytest.fixture()
-def top_level_question(answers_fixtures_dir: Path) -> dict[str, Any]:
-    return _load_json(answers_fixtures_dir / "input" / "top_level_question.json")
+def questions_input(answers_fixtures_dir: Path) -> dict[str, Any]:
+    return _load_json(answers_fixtures_dir / "input" / "概率论7套真题.json")
 
 
 @pytest.fixture()
-def questions_bundle(answers_fixtures_dir: Path) -> dict[str, Any]:
-    return _load_json(answers_fixtures_dir / "input" / "questions_bundle.json")
+def top_level_question(questions_input: dict[str, Any]) -> dict[str, Any]:
+    return deepcopy(questions_input["questions"][0])
 
 
 @pytest.fixture()
-def expected_merged_top_level_question(answers_fixtures_dir: Path) -> dict[str, Any]:
-    return _load_json(answers_fixtures_dir / "expected" / "merged_top_level_question.json")
+def questions_bundle(questions_input: dict[str, Any]) -> dict[str, Any]:
+    return {"questions": deepcopy(questions_input["questions"][:2])}
 
 
 @pytest.fixture()
-def expected_questions_with_answers(answers_fixtures_dir: Path) -> dict[str, Any]:
-    return _load_json(answers_fixtures_dir / "expected" / "questions_with_answers.json")
+def expected_merged_top_level_question() -> dict[str, Any]:
+    return {
+        "type": "filling",
+        "stem": "设 $P(A) = 0.5,\\ P(B) = 0.7,\\ P(AB) = 0.3$，则 $P(A \\cup B) =$ [[slot]]",
+        "stem_images": [],
+        "fill_slots_count": 1,
+        "options": None,
+        "sub_questions": None,
+        "answer": ["0.9"],
+        "solution": "由容斥公式 $P(A \\cup B)=P(A)+P(B)-P(AB)=0.5+0.7-0.3=0.9$。",
+    }
+
+
+@pytest.fixture()
+def expected_questions_with_answers() -> dict[str, Any]:
+    return {
+        "questions": [
+            {
+                "type": "filling",
+                "stem": "设 $P(A) = 0.5,\\ P(B) = 0.7,\\ P(AB) = 0.3$，则 $P(A \\cup B) =$ [[slot]]",
+                "stem_images": [],
+                "fill_slots_count": 1,
+                "options": None,
+                "sub_questions": None,
+                "answer": ["0.9"],
+                "solution": "由容斥公式 $P(A \\cup B)=P(A)+P(B)-P(AB)=0.5+0.7-0.3=0.9$。",
+            },
+            {
+                "type": "filling",
+                "stem": "区间 $(-2, 7)$ 上的均匀分布的密度函数为 [[slot]]",
+                "stem_images": [],
+                "fill_slots_count": 1,
+                "options": None,
+                "sub_questions": None,
+                "answer": ["1/9"],
+                "solution": "均匀分布在区间 $(-2,7)$ 上的密度为区间长度的倒数，即 $1/(7-(-2))=1/9$。",
+            },
+        ]
+    }
 
 
 @pytest.fixture()
 def answer_tree_for_top_level_question() -> dict[str, Any]:
     return {
-        "answer": None,
-        "solution": None,
-        "sub_answers": [
-            {
-                "answer": ["1/2"],
-                "solution": "由题意可直接得到 $P(A)=\\frac{1}{2}$。",
-                "sub_answers": None,
-            },
-            {
-                "answer": "B",
-                "solution": "逐项判断可知只有 B 成立。",
-                "sub_answers": None,
-            },
-        ],
+        "answer": ["0.9"],
+        "solution": "由容斥公式 $P(A \\cup B)=P(A)+P(B)-P(AB)=0.5+0.7-0.3=0.9$。",
+        "sub_answers": None,
     }
 
 
 @pytest.fixture()
-def answer_tree_for_judging_question() -> dict[str, Any]:
+def answer_tree_for_second_question() -> dict[str, Any]:
     return {
-        "answer": "错误",
-        "solution": "并非所有随机变量都有有限期望，因此该说法错误。",
+        "answer": ["1/9"],
+        "solution": "均匀分布在区间 $(-2,7)$ 上的密度为区间长度的倒数，即 $1/(7-(-2))=1/9$。",
         "sub_answers": None,
     }
 
@@ -135,7 +161,7 @@ def test_question_to_answers_posts_structured_output_request(
     assert messages[0]["role"] == "system"
     assert messages[1]["role"] == "user"
     assert "请为以下题目生成正确答案和完整解析" in messages[1]["content"]
-    assert '"sub_questions"' in messages[1]["content"]
+    assert '"fill_slots_count"' in messages[1]["content"]
 
 
 def test_merge_answer_tree_merges_recursively_by_position(
@@ -154,16 +180,48 @@ def test_merge_answer_tree_merges_recursively_by_position(
 
 
 def test_merge_answer_tree_rejects_sub_answer_count_mismatch(
-    top_level_question: dict[str, Any],
-    answer_tree_for_top_level_question: dict[str, Any],
 ) -> None:
     module = _import_answers_module()
 
-    bad_answer_tree = deepcopy(answer_tree_for_top_level_question)
-    bad_answer_tree["sub_answers"] = bad_answer_tree["sub_answers"][:1]
+    question = {
+        "type": "subjective",
+        "stem": "阅读材料并回答问题。",
+        "stem_images": [],
+        "fill_slots_count": 0,
+        "options": None,
+        "sub_questions": [
+            {
+                "type": "filling",
+                "stem": "第 1 空 [[slot]]",
+                "stem_images": [],
+                "fill_slots_count": 1,
+                "options": None,
+                "sub_questions": None,
+            },
+            {
+                "type": "filling",
+                "stem": "第 2 空 [[slot]]",
+                "stem_images": [],
+                "fill_slots_count": 1,
+                "options": None,
+                "sub_questions": None,
+            },
+        ],
+    }
+    bad_answer_tree = {
+        "answer": None,
+        "solution": None,
+        "sub_answers": [
+            {
+                "answer": ["1"],
+                "solution": "示例解析。",
+                "sub_answers": None,
+            }
+        ],
+    }
 
     with pytest.raises(module.AnswersError, match="sub_answers"):
-        module.merge_answer_tree(deepcopy(top_level_question), bad_answer_tree)
+        module.merge_answer_tree(question, bad_answer_tree)
 
 
 def test_generate_answers_for_questions_calls_llm_once_per_top_level_question(
@@ -171,13 +229,13 @@ def test_generate_answers_for_questions_calls_llm_once_per_top_level_question(
     questions_bundle: dict[str, Any],
     expected_questions_with_answers: dict[str, Any],
     answer_tree_for_top_level_question: dict[str, Any],
-    answer_tree_for_judging_question: dict[str, Any],
+    answer_tree_for_second_question: dict[str, Any],
 ) -> None:
     module = _import_answers_module()
     captured_bodies: list[dict[str, Any]] = []
     queued_answer_trees = [
         answer_tree_for_top_level_question,
-        answer_tree_for_judging_question,
+        answer_tree_for_second_question,
     ]
 
     def fake_post(url: str, *, headers: dict[str, str], json: dict[str, Any], timeout: int) -> _FakeResponse:
@@ -209,7 +267,7 @@ def test_generate_answers_for_questions_calls_llm_once_per_top_level_question(
     assert merged == expected_questions_with_answers
     assert len(captured_bodies) == 2
     assert "请为以下题目生成正确答案和完整解析" in captured_bodies[0]["messages"][1]["content"]
-    assert "随机变量的期望一定存在" in captured_bodies[1]["messages"][1]["content"]
+    assert "区间 $(-2, 7)$ 上的均匀分布" in captured_bodies[1]["messages"][1]["content"]
 
 
 def test_generate_answers_for_questions_rejects_non_array_questions() -> None:
