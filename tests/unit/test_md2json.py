@@ -159,3 +159,24 @@ def test_markdown_file_to_questions_writes_output_file(
 
     assert result == expected
     assert _load_json(output_path) == expected
+
+
+def test_markdown_file_to_questions_rejects_invalid_json_write(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    module = _import_md2json_module()
+    markdown_path = tmp_path / "sample.md"
+    output_path = tmp_path / "output" / "questions.json"
+    markdown_path.write_text("# sample", encoding="utf-8")
+
+    monkeypatch.setattr(
+        module,
+        "markdown_to_questions",
+        lambda markdown_text, model=None: {"questions": "broken"},
+    )
+
+    with pytest.raises(module.Md2JsonError, match="question schema validation failed"):
+        module.markdown_file_to_questions(markdown_path, output_path=output_path)
+
+    assert not output_path.exists()

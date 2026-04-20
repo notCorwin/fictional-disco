@@ -11,6 +11,7 @@ import requests
 from jsonschema import Draft202012Validator
 
 from .config import OPENROUTER_API_KEY, OPENROUTER_MODEL_NAME, PROMPTS_DIR, SCHEMAS_DIR
+from .json_io import write_validated_json_file
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 REQUEST_TIMEOUT = 180
@@ -342,10 +343,11 @@ def markdown_file_to_questions(
 
     if output_path is not None:
         output_path = Path(output_path)
-        output_path.parent.mkdir(parents=True, exist_ok=True)
-        output_path.write_text(
-            json.dumps(data, ensure_ascii=False, indent=2) + "\n",
-            encoding="utf-8",
+        write_validated_json_file(
+            output_path,
+            data,
+            validator=validate_questions_json,
+            error_cls=Md2JsonError,
         )
 
     return data

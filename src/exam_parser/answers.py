@@ -11,6 +11,8 @@ import requests
 from jsonschema import Draft202012Validator
 
 from .config import OPENROUTER_API_KEY, OPENROUTER_MODEL_NAME, PROMPTS_DIR, SCHEMAS_DIR
+from .json_io import load_json_file, write_validated_json_file
+from .md2json import validate_questions_json
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 REQUEST_TIMEOUT = 180
@@ -61,16 +63,18 @@ def _question_has_answer(question: Any) -> bool:
 
 
 def _write_json_file(path: Path, data: dict[str, Any]) -> None:
-    path.write_text(
-        json.dumps(data, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
+    write_validated_json_file(
+        path,
+        data,
+        validator=_validate_questions_with_answers,
+        error_cls=AnswersError,
     )
 
 
 def _load_existing_output(path: Path) -> dict[str, Any] | None:
     if not path.exists():
         return None
-    return json.loads(path.read_text(encoding="utf-8"))
+    return load_json_file(path, error_cls=AnswersError)
 
 
 def _headers() -> dict[str, str]:
@@ -80,6 +84,70 @@ def _headers() -> dict[str, str]:
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
         "Content-Type": "application/json",
     }
+
+
+def _validate_questions_with_answers(data: dict[str, Any]) -> None:
+    validate_questions_json(_strip_answer_fields(data))
+
+    questions = data.get("questions")
+    if not isinstance(questions, list):
+        raise AnswersError("questions must be an array")
+
+    for index, question in enumerate(questions):
+        _validate_question_answer_fields(question, question_index=index)
+
+
+def _validate_question_answer_fields(question: Any, *, question_index: int) -> None:
+    if not isinstance(question, dict):
+        raise AnswersError(f"question at index {question_index} is not an object")
+
+    has_answer = "answer" in question
+    has_solution = "solution" in question
+    if has_answer != has_solution:
+        raise AnswersError(f"question at index {question_index} is missing answer or solution")
+
+    if has_answer:
+        answer = question.get("answer")
+        if answer is not None and not isinstance(answer, (str, list)):
+            raise AnswersError(f"question at index {question_index} has invalid answer type")
+        if isinstance(answer, list) and not all(isinstance(item, str) for item in answer):
+            raise AnswersError(f"question at index {question_index} answer list must contain strings only")
+
+        solution = question.get("solution")
+        if solution is not None and not isinstance(solution, str):
+            raise AnswersError(f"question at index {question_index} has invalid solution type")
+
+    sub_questions = question.get("sub_questions")
+    if isinstance(sub_questions, list):
+        for sub_question in sub_questions:
+            _validate_question_answer_fields(
+                sub_question,
+                question_index=question_index,
+            )
+
+
+def _strip_answer_fields(data: dict[str, Any]) -> dict[str, Any]:
+    questions = data.get("questions")
+    if not isinstance(questions, list):
+        return data
+    return {"questions": [_strip_question_answer_fields(question) for question in questions]}
+
+
+def _strip_question_answer_fields(question: Any) -> Any:
+    if not isinstance(question, dict):
+        return question
+
+    stripped = {
+        key: value
+        for key, value in question.items()
+        if key not in {"answer", "solution"}
+    }
+
+    sub_questions = stripped.get("sub_questions")
+    if isinstance(sub_questions, list):
+        stripped["sub_questions"] = [_strip_question_answer_fields(item) for item in sub_questions]
+
+    return stripped
 
 
 def _load_answer_schema_bundle() -> dict[str, Any]:
@@ -338,7 +406,7 @@ def questions_file_to_answers(
     if questions_path.suffix.lower() != ".json":
         raise ValueError(f"expected a .json file, got: {questions_path.name}")
 
-    data = json.loads(questions_path.read_text(encoding="utf-8"))
+    data = load_json_file(questions_path, error_cls=AnswersError)
     questions = data.get("questions")
     if not isinstance(questions, list):
         raise AnswersError("questions must be an array")

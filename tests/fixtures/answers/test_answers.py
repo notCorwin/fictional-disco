@@ -275,3 +275,32 @@ def test_generate_answers_for_questions_rejects_non_array_questions() -> None:
 
     with pytest.raises(module.AnswersError, match="questions"):
         module.generate_answers_for_questions({"questions": None})
+
+
+def test_questions_file_to_answers_keeps_existing_file_when_incremental_write_is_invalid(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    questions_bundle: dict[str, Any],
+    answer_tree_for_top_level_question: dict[str, Any],
+) -> None:
+    module = _import_answers_module()
+    questions_path = tmp_path / "questions.json"
+    output_path = tmp_path / "answers.json"
+
+    questions_path.write_text(json.dumps(questions_bundle, ensure_ascii=False), encoding="utf-8")
+    output_path.write_text(json.dumps(questions_bundle, ensure_ascii=False), encoding="utf-8")
+
+    monkeypatch.setattr(module, "question_to_answers", lambda question, model=None: answer_tree_for_top_level_question)
+    monkeypatch.setattr(
+        module,
+        "merge_answer_tree",
+        lambda question, answer_tree: {
+            **question,
+            "answer": answer_tree.get("answer"),
+        },
+    )
+
+    with pytest.raises(module.AnswersError, match="missing answer or solution"):
+        module.questions_file_to_answers(questions_path, output_path=output_path)
+
+    assert _load_json(output_path) == questions_bundle
